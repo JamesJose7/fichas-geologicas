@@ -3,6 +3,7 @@ package com.arqapps.ficha_campo;
 import com.arqapps.core.BaseEntity;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 
 @Entity
 public class FichaCampo extends BaseEntity {
@@ -10,6 +11,8 @@ public class FichaCampo extends BaseEntity {
     private String origenRoca;
     private String unidadGeologica;
     private String contactoGeologico;
+    @OneToOne
+    private Ubicacion ubicacion;
 
     public FichaCampo() { super(); }
 
@@ -50,5 +53,13 @@ public class FichaCampo extends BaseEntity {
 
     public void setContactoGeologico(String contactoGeologico) {
         this.contactoGeologico = contactoGeologico;
+    }
+
+    public Ubicacion getUbicacion() {
+        return ubicacion;
+    }
+
+    public void setUbicacion(Ubicacion ubicacion) {
+        this.ubicacion = ubicacion;
     }
 }
