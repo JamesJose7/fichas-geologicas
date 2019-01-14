@@ -1,16 +1,19 @@
 package com.arqapps.estructura_geologica;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Falla extends EstructuraGeologica {
     private float rumbo;
     private float buzamiento;
     private float azimut;
     private String claseFalla;
-    private String estado;
+    private boolean estado;
     private String certeza;
     private String escarpe;
 
     public Falla(String categoria, String subcategoria, String descripcion, String institucionGeneradora, float rumbo,
-                 float buzamiento, float azimut, String claseFalla, String estado, String certeza, String escarpe) {
+                 float buzamiento, float azimut, String claseFalla, boolean estado, String certeza, String escarpe) {
         super(categoria, subcategoria, descripcion, institucionGeneradora);
         this.rumbo = rumbo;
         this.buzamiento = buzamiento;
@@ -53,11 +56,11 @@ public class Falla extends EstructuraGeologica {
         this.claseFalla = claseFalla;
     }
 
-    public String getEstado() {
+    public boolean getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(boolean estado) {
         this.estado = estado;
     }
 
