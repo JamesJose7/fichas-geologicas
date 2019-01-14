@@ -4,25 +4,25 @@ import javax.persistence.Entity;
 
 @Entity
 public class ContactoGeologico extends Catalogacion {
-    private String tipo;
+    private String tipoContacto;
     private String limite;
     private String certeza;
 
     public ContactoGeologico() {
     }
 
-    public ContactoGeologico(String tipo, String limite, String certeza) {
-        this.tipo = tipo;
+    public ContactoGeologico(String tipoContacto, String limite, String certeza) {
+        this.tipoContacto = tipoContacto;
         this.limite = limite;
         this.certeza = certeza;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getTipoContacto() {
+        return tipoContacto;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setTipoContacto(String tipoContacto) {
+        this.tipoContacto = tipoContacto;
     }
 
     public String getLimite() {

@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 public class Pliegue extends EstructuraGeologica {
     private float rumbo;
     private float buzamiento;
-    private String tipo;
+    private String tipoContacto;
     private float altura;
     private float separacion;
     private String posicion;
@@ -15,11 +15,11 @@ public class Pliegue extends EstructuraGeologica {
     private String sistema;
 
     public Pliegue(String categoria, String subcategoria, String descripcion, String institucionGeneradora, float rumbo,
-                   float buzamiento, String tipo, float altura, float separacion, String posicion, String anguloEntreFlancos, String perfil, String sistema) {
+                   float buzamiento, String tipoContacto, float altura, float separacion, String posicion, String anguloEntreFlancos, String perfil, String sistema) {
         super(categoria, subcategoria, descripcion, institucionGeneradora);
         this.rumbo = rumbo;
         this.buzamiento = buzamiento;
-        this.tipo = tipo;
+        this.tipoContacto = tipoContacto;
         this.altura = altura;
         this.separacion = separacion;
         this.posicion = posicion;
@@ -44,12 +44,12 @@ public class Pliegue extends EstructuraGeologica {
         this.buzamiento = buzamiento;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getTipoContacto() {
+        return tipoContacto;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setTipoContacto(String tipoContacto) {
+        this.tipoContacto = tipoContacto;
     }
 
     public float getAltura() {

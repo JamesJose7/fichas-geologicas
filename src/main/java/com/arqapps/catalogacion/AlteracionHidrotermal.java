@@ -6,15 +6,15 @@ import javax.persistence.Entity;
 public class AlteracionHidrotermal extends Catalogacion {
     private String factores;
     private String procesos;
-    private String clases;
+    private String altHidrClases;
 
     public AlteracionHidrotermal() {}
 
-    public AlteracionHidrotermal(String categoria, String subcategoria, String descripcion, String institucionGeneradora, String factores, String procesos, String clases) {
+    public AlteracionHidrotermal(String categoria, String subcategoria, String descripcion, String institucionGeneradora, String factores, String procesos, String altHidrClases) {
         super(categoria, subcategoria, descripcion, institucionGeneradora);
         this.factores = factores;
         this.procesos = procesos;
-        this.clases = clases;
+        this.altHidrClases = altHidrClases;
     }
 
     public String getFactores() {
@@ -33,11 +33,11 @@ public class AlteracionHidrotermal extends Catalogacion {
         this.procesos = procesos;
     }
 
-    public String getClases() {
-        return clases;
+    public String getAltHidrClases() {
+        return altHidrClases;
     }
 
-    public void setClases(String clases) {
-        this.clases = clases;
+    public void setAltHidrClases(String altHidrClases) {
+        this.altHidrClases = altHidrClases;
     }
 }

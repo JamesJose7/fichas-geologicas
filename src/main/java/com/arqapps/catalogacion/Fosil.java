@@ -5,37 +5,37 @@ import javax.persistence.Entity;
 @Entity
 public class Fosil extends Catalogacion {
     private String reino;
-    private String clase;
-    private String tipo;
+    private String claseFosil;
+    private String tipoFosil;
     private String flora;
     private String fauna;
     private float tamanio;
     private String era;
-    private String nomenclaturaEra;
+    private String nomEra;
     private String periodo;
-    private String nomenclaturaPeriodo;
+    private String nomPeriodo;
     private String epoca;
-    private String nomenclaturaEpoca;
+    private String nomEpoca;
     private String piso;
-    private String nomenclaturaPiso;
+    private String nomPiso;
 
     public Fosil() { }
 
-    public Fosil(String reino, String clase, String tipo, String flora, String fauna, float tamanio, String era, String nomenclaturaEra, String periodo, String nomenclaturaPeriodo, String epoca, String nomenclaturaEpoca, String piso, String nomenclaturaPiso) {
+    public Fosil(String reino, String claseFosil, String tipoFosil, String flora, String fauna, float tamanio, String era, String nomEra, String periodo, String nomPeriodo, String epoca, String nomEpoca, String piso, String nomPiso) {
         this.reino = reino;
-        this.clase = clase;
-        this.tipo = tipo;
+        this.claseFosil = claseFosil;
+        this.tipoFosil = tipoFosil;
         this.flora = flora;
         this.fauna = fauna;
         this.tamanio = tamanio;
         this.era = era;
-        this.nomenclaturaEra = nomenclaturaEra;
+        this.nomEra = nomEra;
         this.periodo = periodo;
-        this.nomenclaturaPeriodo = nomenclaturaPeriodo;
+        this.nomPeriodo = nomPeriodo;
         this.epoca = epoca;
-        this.nomenclaturaEpoca = nomenclaturaEpoca;
+        this.nomEpoca = nomEpoca;
         this.piso = piso;
-        this.nomenclaturaPiso = nomenclaturaPiso;
+        this.nomPiso = nomPiso;
     }
 
     public String getReino() {
@@ -46,20 +46,20 @@ public class Fosil extends Catalogacion {
         this.reino = reino;
     }
 
-    public String getClase() {
-        return clase;
+    public String getClaseFosil() {
+        return claseFosil;
     }
 
-    public void setClase(String clase) {
-        this.clase = clase;
+    public void setClaseFosil(String claseFosil) {
+        this.claseFosil = claseFosil;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getTipoFosil() {
+        return tipoFosil;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setTipoFosil(String tipoFosil) {
+        this.tipoFosil = tipoFosil;
     }
 
     public String getFlora() {
@@ -94,12 +94,12 @@ public class Fosil extends Catalogacion {
         this.era = era;
     }
 
-    public String getNomenclaturaEra() {
-        return nomenclaturaEra;
+    public String getNomEra() {
+        return nomEra;
     }
 
-    public void setNomenclaturaEra(String nomenclaturaEra) {
-        this.nomenclaturaEra = nomenclaturaEra;
+    public void setNomEra(String nomEra) {
+        this.nomEra = nomEra;
     }
 
     public String getPeriodo() {
@@ -110,12 +110,12 @@ public class Fosil extends Catalogacion {
         this.periodo = periodo;
     }
 
-    public String getNomenclaturaPeriodo() {
-        return nomenclaturaPeriodo;
+    public String getNomPeriodo() {
+        return nomPeriodo;
     }
 
-    public void setNomenclaturaPeriodo(String nomenclaturaPeriodo) {
-        this.nomenclaturaPeriodo = nomenclaturaPeriodo;
+    public void setNomPeriodo(String nomPeriodo) {
+        this.nomPeriodo = nomPeriodo;
     }
 
     public String getEpoca() {
@@ -126,12 +126,12 @@ public class Fosil extends Catalogacion {
         this.epoca = epoca;
     }
 
-    public String getNomenclaturaEpoca() {
-        return nomenclaturaEpoca;
+    public String getNomEpoca() {
+        return nomEpoca;
     }
 
-    public void setNomenclaturaEpoca(String nomenclaturaEpoca) {
-        this.nomenclaturaEpoca = nomenclaturaEpoca;
+    public void setNomEpoca(String nomEpoca) {
+        this.nomEpoca = nomEpoca;
     }
 
     public String getPiso() {
@@ -142,11 +142,11 @@ public class Fosil extends Catalogacion {
         this.piso = piso;
     }
 
-    public String getNomenclaturaPiso() {
-        return nomenclaturaPiso;
+    public String getNomPiso() {
+        return nomPiso;
     }
 
-    public void setNomenclaturaPiso(String nomenclaturaPiso) {
-        this.nomenclaturaPiso = nomenclaturaPiso;
+    public void setNomPiso(String nomPiso) {
+        this.nomPiso = nomPiso;
     }
 }

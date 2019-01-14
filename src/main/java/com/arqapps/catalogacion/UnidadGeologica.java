@@ -5,29 +5,109 @@ import javax.persistence.Entity;
 @Entity
 public class UnidadGeologica extends Catalogacion {
     private String era;
-    private String nomenclaturaEra;
+    private String nomEra;
     private String epoca;
-    private String nomenclaturaEpoca;
+    private String nomEpoca;
     private String piso;
-    private String nomenclaturaPiso;
+    private String nomPiso;
     private String jerarquia;
     private String nombreUnidadGeologica;
     private String nombreIntrusivo;
-    private String nomenclaturaIntrusivo;
+    private String nomIntrusivo;
 
     public UnidadGeologica() {
     }
 
-    public UnidadGeologica(String era, String nomenclaturaEra, String epoca, String nomenclaturaEpoca, String piso, String nomenclaturaPiso, String jerarquia, String nombreUnidadGeologica, String nombreIntrusivo, String nomenclaturaIntrusivo) {
+    public UnidadGeologica(String era, String nomEra, String epoca, String nomEpoca, String piso, String nomPiso, String jerarquia, String nombreUnidadGeologica, String nombreIntrusivo, String nomIntrusivo) {
         this.era = era;
-        this.nomenclaturaEra = nomenclaturaEra;
+        this.nomEra = nomEra;
         this.epoca = epoca;
-        this.nomenclaturaEpoca = nomenclaturaEpoca;
+        this.nomEpoca = nomEpoca;
         this.piso = piso;
-        this.nomenclaturaPiso = nomenclaturaPiso;
+        this.nomPiso = nomPiso;
         this.jerarquia = jerarquia;
         this.nombreUnidadGeologica = nombreUnidadGeologica;
         this.nombreIntrusivo = nombreIntrusivo;
-        this.nomenclaturaIntrusivo = nomenclaturaIntrusivo;
+        this.nomIntrusivo = nomIntrusivo;
+    }
+
+    public String getEra() {
+        return era;
+    }
+
+    public void setEra(String era) {
+        this.era = era;
+    }
+
+    public String getNomEra() {
+        return nomEra;
+    }
+
+    public void setNomEra(String nomEra) {
+        this.nomEra = nomEra;
+    }
+
+    public String getEpoca() {
+        return epoca;
+    }
+
+    public void setEpoca(String epoca) {
+        this.epoca = epoca;
+    }
+
+    public String getNomEpoca() {
+        return nomEpoca;
+    }
+
+    public void setNomEpoca(String nomEpoca) {
+        this.nomEpoca = nomEpoca;
+    }
+
+    public String getPiso() {
+        return piso;
+    }
+
+    public void setPiso(String piso) {
+        this.piso = piso;
+    }
+
+    public String getNomPiso() {
+        return nomPiso;
+    }
+
+    public void setNomPiso(String nomPiso) {
+        this.nomPiso = nomPiso;
+    }
+
+    public String getJerarquia() {
+        return jerarquia;
+    }
+
+    public void setJerarquia(String jerarquia) {
+        this.jerarquia = jerarquia;
+    }
+
+    public String getNombreUnidadGeologica() {
+        return nombreUnidadGeologica;
+    }
+
+    public void setNombreUnidadGeologica(String nombreUnidadGeologica) {
+        this.nombreUnidadGeologica = nombreUnidadGeologica;
+    }
+
+    public String getNombreIntrusivo() {
+        return nombreIntrusivo;
+    }
+
+    public void setNombreIntrusivo(String nombreIntrusivo) {
+        this.nombreIntrusivo = nombreIntrusivo;
+    }
+
+    public String getNomIntrusivo() {
+        return nomIntrusivo;
+    }
+
+    public void setNomIntrusivo(String nomIntrusivo) {
+        this.nomIntrusivo = nomIntrusivo;
     }
 }

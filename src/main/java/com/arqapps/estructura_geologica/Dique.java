@@ -5,11 +5,11 @@ import javax.persistence.Entity;
 @Entity
 public class Dique extends EstructuraGeologica {
     private String claseDique;
-    private boolean texturaDeRoca;
+    private String texturaDeRoca;
 
     public Dique() {}
 
-    public Dique(String categoria, String subcategoria, String descripcion, String institucionGeneradora, String claseDique, boolean texturaDeRoca) {
+    public Dique(String categoria, String subcategoria, String descripcion, String institucionGeneradora, String claseDique, String texturaDeRoca) {
         super(categoria, subcategoria, descripcion, institucionGeneradora);
         this.claseDique = claseDique;
         this.texturaDeRoca = texturaDeRoca;
@@ -23,11 +23,11 @@ public class Dique extends EstructuraGeologica {
         this.claseDique = claseDique;
     }
 
-    public boolean getTexturaDeRoca() {
+    public String getTexturaDeRoca() {
         return texturaDeRoca;
     }
 
-    public void setTexturaDeRoca(boolean texturaDeRoca) {
+    public void setTexturaDeRoca(String texturaDeRoca) {
         this.texturaDeRoca = texturaDeRoca;
     }
 }

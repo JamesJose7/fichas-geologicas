@@ -5,28 +5,28 @@ import javax.persistence.Entity;
 @Entity
 public class Muestra extends Catalogacion {
     private String naturaleza;
-    private String tipo;
+    private String tipoMuestra;
     private String consistenciaMaterial;
     private String codigo;
     private String sitio;
     private String tipoAnalisis;
     private String metodoAnalisis;
-    private String nomenclaturaMetodoAnalisis;
+    private String nomMetodoAnalisis;
     private String cantidadMuestra;
     private String observaciones;
 
     public Muestra() {
     }
 
-    public Muestra(String naturaleza, String tipo, String consistenciaMaterial, String codigo, String sitio, String tipoAnalisis, String metodoAnalisis, String nomenclaturaMetodoAnalisis, String cantidadMuestra, String observaciones) {
+    public Muestra(String naturaleza, String tipoMuestra, String consistenciaMaterial, String codigo, String sitio, String tipoAnalisis, String metodoAnalisis, String nomMetodoAnalisis, String cantidadMuestra, String observaciones) {
         this.naturaleza = naturaleza;
-        this.tipo = tipo;
+        this.tipoMuestra = tipoMuestra;
         this.consistenciaMaterial = consistenciaMaterial;
         this.codigo = codigo;
         this.sitio = sitio;
         this.tipoAnalisis = tipoAnalisis;
         this.metodoAnalisis = metodoAnalisis;
-        this.nomenclaturaMetodoAnalisis = nomenclaturaMetodoAnalisis;
+        this.nomMetodoAnalisis = nomMetodoAnalisis;
         this.cantidadMuestra = cantidadMuestra;
         this.observaciones = observaciones;
     }
@@ -39,12 +39,12 @@ public class Muestra extends Catalogacion {
         this.naturaleza = naturaleza;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getTipoMuestra() {
+        return tipoMuestra;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setTipoMuestra(String tipoMuestra) {
+        this.tipoMuestra = tipoMuestra;
     }
 
     public String getConsistenciaMaterial() {
@@ -87,12 +87,12 @@ public class Muestra extends Catalogacion {
         this.metodoAnalisis = metodoAnalisis;
     }
 
-    public String getNomenclaturaMetodoAnalisis() {
-        return nomenclaturaMetodoAnalisis;
+    public String getNomMetodoAnalisis() {
+        return nomMetodoAnalisis;
     }
 
-    public void setNomenclaturaMetodoAnalisis(String nomenclaturaMetodoAnalisis) {
-        this.nomenclaturaMetodoAnalisis = nomenclaturaMetodoAnalisis;
+    public void setNomMetodoAnalisis(String nomMetodoAnalisis) {
+        this.nomMetodoAnalisis = nomMetodoAnalisis;
     }
 
     public String getCantidadMuestra() {

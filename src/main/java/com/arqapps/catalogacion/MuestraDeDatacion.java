@@ -4,8 +4,8 @@ import javax.persistence.Entity;
 
 @Entity
 public class MuestraDeDatacion extends Catalogacion {
-    private String codigo;
-    private String fecha;
+    private String codigoDatacion;
+    private String fechaDatacion;
     private String sitio;
     private String metodoDatacionRadiometrica;
     private String observaciones;
@@ -13,28 +13,28 @@ public class MuestraDeDatacion extends Catalogacion {
     public MuestraDeDatacion() {
     }
 
-    public MuestraDeDatacion(String codigo, String fecha, String sitio, String metodoDatacionRadiometrica, String observaciones) {
-        this.codigo = codigo;
-        this.fecha = fecha;
+    public MuestraDeDatacion(String codigoDatacion, String fechaDatacion, String sitio, String metodoDatacionRadiometrica, String observaciones) {
+        this.codigoDatacion = codigoDatacion;
+        this.fechaDatacion = fechaDatacion;
         this.sitio = sitio;
         this.metodoDatacionRadiometrica = metodoDatacionRadiometrica;
         this.observaciones = observaciones;
     }
 
-    public String getCodigo() {
-        return codigo;
+    public String getCodigoDatacion() {
+        return codigoDatacion;
     }
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
+    public void setCodigoDatacion(String codigoDatacion) {
+        this.codigoDatacion = codigoDatacion;
     }
 
-    public String getFecha() {
-        return fecha;
+    public String getFechaDatacion() {
+        return fechaDatacion;
     }
 
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
+    public void setFechaDatacion(String fechaDatacion) {
+        this.fechaDatacion = fechaDatacion;
     }
 
     public String getSitio() {

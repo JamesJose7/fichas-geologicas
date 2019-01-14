@@ -8,12 +8,12 @@ public class Falla extends EstructuraGeologica {
     private float buzamiento;
     private float azimut;
     private String claseFalla;
-    private boolean estado;
+    private String estado;
     private String certeza;
     private String escarpe;
 
     public Falla(String categoria, String subcategoria, String descripcion, String institucionGeneradora, float rumbo,
-                 float buzamiento, float azimut, String claseFalla, boolean estado, String certeza, String escarpe) {
+                 float buzamiento, float azimut, String claseFalla, String estado, String certeza, String escarpe) {
         super(categoria, subcategoria, descripcion, institucionGeneradora);
         this.rumbo = rumbo;
         this.buzamiento = buzamiento;
@@ -56,11 +56,11 @@ public class Falla extends EstructuraGeologica {
         this.claseFalla = claseFalla;
     }
 
-    public boolean getEstado() {
+    public String getEstado() {
         return estado;
     }
 
-    public void setEstado(boolean estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
 

@@ -6,12 +6,12 @@ import javax.persistence.Entity;
 public class Diaclasa extends EstructuraGeologica {
     private float direccion;
     private String buzamiento;
-    private boolean asociacion;
+    private String asociacion;
     private String formacion;
     private String diaclasaClase;
 
     public Diaclasa(String categoria, String subcategoria, String descripcion, String institucionGeneradora, float direccion,
-                    String buzamiento, boolean asociacion, String formacion, String diaclasaClase) {
+                    String buzamiento, String asociacion, String formacion, String diaclasaClase) {
         super(categoria, subcategoria, descripcion, institucionGeneradora);
         this.direccion = direccion;
         this.buzamiento = buzamiento;
@@ -36,11 +36,11 @@ public class Diaclasa extends EstructuraGeologica {
         this.buzamiento = buzamiento;
     }
 
-    public boolean getAsociacion() {
+    public String getAsociacion() {
         return asociacion;
     }
 
-    public void setAsociacion(boolean asociacion) {
+    public void setAsociacion(String asociacion) {
         this.asociacion = asociacion;
     }
 
