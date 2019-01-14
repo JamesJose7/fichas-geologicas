@@ -5,16 +5,16 @@ import javax.persistence.Entity;
 @Entity
 public class Afloramiento extends Catalogacion {
     private float dimension;
-    private String origen;
+    private String origenRoca;
     private String tipoRoca;
     private String sitio;
 
     public Afloramiento() {
     }
 
-    public Afloramiento(float dimension, String origen, String tipoRoca, String sitio) {
+    public Afloramiento(float dimension, String origenRoca, String tipoRoca, String sitio) {
         this.dimension = dimension;
-        this.origen = origen;
+        this.origenRoca = origenRoca;
         this.tipoRoca = tipoRoca;
         this.sitio = sitio;
     }
@@ -27,12 +27,12 @@ public class Afloramiento extends Catalogacion {
         this.dimension = dimension;
     }
 
-    public String getOrigen() {
-        return origen;
+    public String getOrigenRoca() {
+        return origenRoca;
     }
 
-    public void setOrigen(String origen) {
-        this.origen = origen;
+    public void setOrigenRoca(String origenRoca) {
+        this.origenRoca = origenRoca;
     }
 
     public String getTipoRoca() {

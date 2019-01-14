@@ -4,20 +4,20 @@ import javax.persistence.Entity;
 
 @Entity
 public class DepositoSuperficial extends Catalogacion {
-    private String clase;
+    private String claseDeposito;
 
     public DepositoSuperficial() {
     }
 
-    public DepositoSuperficial(String clase) {
-        this.clase = clase;
+    public DepositoSuperficial(String claseDeposito) {
+        this.claseDeposito = claseDeposito;
     }
 
-    public String getClase() {
-        return clase;
+    public String getClaseDeposito() {
+        return claseDeposito;
     }
 
-    public void setClase(String clase) {
-        this.clase = clase;
+    public void setClaseDeposito(String claseDeposito) {
+        this.claseDeposito = claseDeposito;
     }
 }

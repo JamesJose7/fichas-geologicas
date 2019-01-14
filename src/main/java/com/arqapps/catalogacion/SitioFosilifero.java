@@ -8,29 +8,26 @@ public class SitioFosilifero extends Catalogacion {
     private String nombre;
     private float densidad;
     private String era;
-    private String nomenclaturaEra;
     private String periodo;
-    private String nomenclaturaPeriodo;
     private String epoca;
-    private String nomenclaturaEpoca;
+    private String nomEpoca;
     private String piso;
-    private String nomenclaturaPiso;
+    private String nomPiso;
 
     public SitioFosilifero() {
     }
 
-    public SitioFosilifero(String localizacion, String nombre, float densidad, String era, String nomenclaturaEra, String periodo, String nomenclaturaPeriodo, String epoca, String nomenclaturaEpoca, String piso, String nomenclaturaPiso) {
+    public SitioFosilifero(String localizacion, String nombre, float densidad, String era, String periodo, String epoca,
+                           String nomEpoca, String piso, String nomPiso) {
         this.localizacion = localizacion;
         this.nombre = nombre;
         this.densidad = densidad;
         this.era = era;
-        this.nomenclaturaEra = nomenclaturaEra;
         this.periodo = periodo;
-        this.nomenclaturaPeriodo = nomenclaturaPeriodo;
         this.epoca = epoca;
-        this.nomenclaturaEpoca = nomenclaturaEpoca;
+        this.nomEpoca = nomEpoca;
         this.piso = piso;
-        this.nomenclaturaPiso = nomenclaturaPiso;
+        this.nomPiso = nomPiso;
     }
 
     public String getLocalizacion() {
@@ -65,28 +62,12 @@ public class SitioFosilifero extends Catalogacion {
         this.era = era;
     }
 
-    public String getNomenclaturaEra() {
-        return nomenclaturaEra;
-    }
-
-    public void setNomenclaturaEra(String nomenclaturaEra) {
-        this.nomenclaturaEra = nomenclaturaEra;
-    }
-
     public String getPeriodo() {
         return periodo;
     }
 
     public void setPeriodo(String periodo) {
         this.periodo = periodo;
-    }
-
-    public String getNomenclaturaPeriodo() {
-        return nomenclaturaPeriodo;
-    }
-
-    public void setNomenclaturaPeriodo(String nomenclaturaPeriodo) {
-        this.nomenclaturaPeriodo = nomenclaturaPeriodo;
     }
 
     public String getEpoca() {
@@ -97,12 +78,12 @@ public class SitioFosilifero extends Catalogacion {
         this.epoca = epoca;
     }
 
-    public String getNomenclaturaEpoca() {
-        return nomenclaturaEpoca;
+    public String getNomEpoca() {
+        return nomEpoca;
     }
 
-    public void setNomenclaturaEpoca(String nomenclaturaEpoca) {
-        this.nomenclaturaEpoca = nomenclaturaEpoca;
+    public void setNomEpoca(String nomEpoca) {
+        this.nomEpoca = nomEpoca;
     }
 
     public String getPiso() {
@@ -113,11 +94,11 @@ public class SitioFosilifero extends Catalogacion {
         this.piso = piso;
     }
 
-    public String getNomenclaturaPiso() {
-        return nomenclaturaPiso;
+    public String getNomPiso() {
+        return nomPiso;
     }
 
-    public void setNomenclaturaPiso(String nomenclaturaPiso) {
-        this.nomenclaturaPiso = nomenclaturaPiso;
+    public void setNomPiso(String nomPiso) {
+        this.nomPiso = nomPiso;
     }
 }

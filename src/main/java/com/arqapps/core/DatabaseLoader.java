@@ -46,22 +46,22 @@ public class DatabaseLoader implements ApplicationRunner {
         FichaCampo ficha2 = new FichaCampo("Muestra", "origen", "unidad", "contacto");
 
         // Ubicacion de ficha de campo
-        Ubicacion ubicacion = new Ubicacion(new Date(), "sdf", "sdf", "fsd", "fsdf");
+        Ubicacion ubicacion = new Ubicacion(new Date(), "dd", "dd", "d", "fsdf");
         ubicaciones.save(ubicacion);
         Ubicacion ubicacion2 = new Ubicacion(new Date(), "sdf", "sdf", "fsd", "fsdf");
         ubicaciones.save(ubicacion2);
 
         // Estructuras geologicas
         Dique dique = new Dique("estructura geologica", "dique", "description", "institucion",
-                "clase", true);
+                "c", "c");
         mEstructuraGeologicaRepository.save(dique);
         Foliacion foliacion = new Foliacion("estructura geologica", "foliacion", "description", "institucion",
-                "metaforicas", "igneas");
+                "m", "i");
         mEstructuraGeologicaRepository.save(foliacion);
 
         // Catalogacion
         AlteracionHidrotermal alteracionHidrotermal = new AlteracionHidrotermal("catalogacion", "alteracion hidrotermal",
-                "descripcion", "institucion", "facctores", "procesos", "classes");
+                "descripcion", "institucion", "ff", "p", "cc");
         mCatalogacionRepository.save(alteracionHidrotermal);
 
         // Save ficha de campo
