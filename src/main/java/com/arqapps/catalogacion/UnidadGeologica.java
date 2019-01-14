@@ -31,4 +31,3 @@ public class UnidadGeologica extends Catalogacion {
         this.nomenclaturaIntrusivo = nomenclaturaIntrusivo;
     }
 }
--
