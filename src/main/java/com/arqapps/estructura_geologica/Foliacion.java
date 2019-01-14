@@ -4,30 +4,30 @@ import javax.persistence.Entity;
 
 @Entity
 public class Foliacion extends EstructuraGeologica {
-    private String foliacionRocasMetaforicas;
-    private String foliacionRocasIgneas;
+    private String rocasMetaforicas;
+    private String rocasIgneas;
 
     public Foliacion() {}
 
-    public Foliacion(String categoria, String subcategoria, String descripcion, String institucionGeneradora, String foliacionRocasMetaforicas, String foliacionRocasIgneas) {
+    public Foliacion(String categoria, String subcategoria, String descripcion, String institucionGeneradora, String rocasMetaforicas, String rocasIgneas) {
         super(categoria, subcategoria, descripcion, institucionGeneradora);
-        this.foliacionRocasMetaforicas = foliacionRocasMetaforicas;
-        this.foliacionRocasIgneas = foliacionRocasIgneas;
+        this.rocasMetaforicas = rocasMetaforicas;
+        this.rocasIgneas = rocasIgneas;
     }
 
-    public String getFoliacionRocasMetaforicas() {
-        return foliacionRocasMetaforicas;
+    public String getRocasMetaforicas() {
+        return rocasMetaforicas;
     }
 
-    public void setFoliacionRocasMetaforicas(String foliacionRocasMetaforicas) {
-        this.foliacionRocasMetaforicas = foliacionRocasMetaforicas;
+    public void setRocasMetaforicas(String rocasMetaforicas) {
+        this.rocasMetaforicas = rocasMetaforicas;
     }
 
-    public String getFoliacionRocasIgneas() {
-        return foliacionRocasIgneas;
+    public String getRocasIgneas() {
+        return rocasIgneas;
     }
 
-    public void setFoliacionRocasIgneas(String foliacionRocasIgneas) {
-        this.foliacionRocasIgneas = foliacionRocasIgneas;
+    public void setRocasIgneas(String rocasIgneas) {
+        this.rocasIgneas = rocasIgneas;
     }
 }
