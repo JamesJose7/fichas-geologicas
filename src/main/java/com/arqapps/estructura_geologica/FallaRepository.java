@@ -1,4 +1,7 @@
 package com.arqapps.estructura_geologica;
 
-public interface FallaRepository {
+import javax.transaction.Transactional;
+
+@Transactional
+public interface FallaRepository extends EstructuraGeologicaBaseRepository<Falla> {
 }
