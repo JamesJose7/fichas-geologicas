@@ -1,5 +1,7 @@
 package com.arqapps.core;
 
+import com.arqapps.catalogacion.AlteracionHidrotermal;
+import com.arqapps.catalogacion.CatalogacionRepository;
 import com.arqapps.estructura_geologica.Dique;
 import com.arqapps.estructura_geologica.EstructuraGeologicaRepository;
 import com.arqapps.estructura_geologica.Foliacion;
@@ -20,13 +22,16 @@ public class DatabaseLoader implements ApplicationRunner {
     private final UbicacionRepository ubicaciones;
 
     private final EstructuraGeologicaRepository mEstructuraGeologicaRepository;
+    private final CatalogacionRepository mCatalogacionRepository;
 
     @Autowired
     public DatabaseLoader(FichaCampoRepository fichas, UbicacionRepository ubicaciones,
-                          EstructuraGeologicaRepository estructuraGeologicaRepository) {
+                          EstructuraGeologicaRepository estructuraGeologicaRepository,
+                          CatalogacionRepository catalogacionRepository) {
         this.fichas = fichas;
         this.ubicaciones = ubicaciones;
         mEstructuraGeologicaRepository = estructuraGeologicaRepository;
+        mCatalogacionRepository = catalogacionRepository;
     }
 
     @Override
@@ -47,19 +52,26 @@ public class DatabaseLoader implements ApplicationRunner {
         ubicaciones.save(ubicacion2);
 
         // Estructuras geologicas
-        Dique dique = new Dique("categoria", "dique", "description", "institucion",
+        Dique dique = new Dique("estructura geologica", "dique", "description", "institucion",
                 "clase", "textura");
         mEstructuraGeologicaRepository.save(dique);
-        Foliacion foliacion = new Foliacion("categoria", "foliacion", "description", "institucion",
+        Foliacion foliacion = new Foliacion("estructura geologica", "foliacion", "description", "institucion",
                 "metaforicas", "igneas");
         mEstructuraGeologicaRepository.save(foliacion);
+
+        // Catalogacion
+        AlteracionHidrotermal alteracionHidrotermal = new AlteracionHidrotermal("catalogacion", "alteracion hidrotermal",
+                "descripcion", "institucion", "facctores", "procesos", "classes");
+        mCatalogacionRepository.save(alteracionHidrotermal);
 
         // Save ficha de campo
         ficha.setUbicacion(ubicacion);
         ficha.setEstructuraGeologica(dique);
+        ficha.setCatalogacion(alteracionHidrotermal);
         fichas.save(ficha);
         ficha2.setUbicacion(ubicacion2);
         ficha2.setEstructuraGeologica(foliacion);
+        ficha2.setCatalogacion(alteracionHidrotermal);
         fichas.save(ficha2);
 
 

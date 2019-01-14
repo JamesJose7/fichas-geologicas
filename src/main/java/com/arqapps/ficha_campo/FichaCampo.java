@@ -1,5 +1,6 @@
 package com.arqapps.ficha_campo;
 
+import com.arqapps.catalogacion.Catalogacion;
 import com.arqapps.core.BaseEntity;
 import com.arqapps.estructura_geologica.EstructuraGeologica;
 
@@ -17,6 +18,8 @@ public class FichaCampo extends BaseEntity {
 
     @OneToOne
     private EstructuraGeologica estructuraGeologica;
+    @OneToOne
+    private Catalogacion catalogacion;
 
     public FichaCampo() { super(); }
 
@@ -73,5 +76,13 @@ public class FichaCampo extends BaseEntity {
 
     public void setEstructuraGeologica(EstructuraGeologica estructuraGeologica) {
         this.estructuraGeologica = estructuraGeologica;
+    }
+
+    public Catalogacion getCatalogacion() {
+        return catalogacion;
+    }
+
+    public void setCatalogacion(Catalogacion catalogacion) {
+        this.catalogacion = catalogacion;
     }
 }
