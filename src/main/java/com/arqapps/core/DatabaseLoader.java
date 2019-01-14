@@ -53,7 +53,7 @@ public class DatabaseLoader implements ApplicationRunner {
 
         // Estructuras geologicas
         Dique dique = new Dique("estructura geologica", "dique", "description", "institucion",
-                "clase", "textura");
+                "clase", true);
         mEstructuraGeologicaRepository.save(dique);
         Foliacion foliacion = new Foliacion("estructura geologica", "foliacion", "description", "institucion",
                 "metaforicas", "igneas");
