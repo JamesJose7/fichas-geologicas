@@ -5,6 +5,6 @@ import org.springframework.data.rest.core.annotation.RestResource;
 import javax.transaction.Transactional;
 
 @Transactional
-@RestResource(path = "diaclasas", rel = "diaclasas")
+@RestResource(path = "diaclasas", rel = "EST-diaclasas")
 public interface DiaclasaRepository extends EstructuraGeologicaBaseRepository<Diaclasa> {
 }
