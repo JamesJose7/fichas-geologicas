@@ -5,6 +5,6 @@ import org.springframework.data.rest.core.annotation.RestResource;
 import javax.transaction.Transactional;
 
 @Transactional
-@RestResource(path = "diques", rel = "diques")
+@RestResource(path = "diques", rel = "EST-diques")
 public interface DiqueRepository extends EstructuraGeologicaBaseRepository<Dique> {
 }

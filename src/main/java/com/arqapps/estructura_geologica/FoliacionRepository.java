@@ -5,6 +5,6 @@ import org.springframework.data.rest.core.annotation.RestResource;
 import javax.transaction.Transactional;
 
 @Transactional
-@RestResource(path = "foliaciones", rel = "foliaciones")
+@RestResource(path = "foliaciones", rel = "EST-foliaciones")
 public interface FoliacionRepository extends EstructuraGeologicaBaseRepository<Foliacion> {
 }
