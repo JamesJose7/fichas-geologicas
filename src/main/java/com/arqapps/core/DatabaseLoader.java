@@ -61,7 +61,7 @@ public class DatabaseLoader implements ApplicationRunner {
 
         // Catalogacion
         AlteracionHidrotermal alteracionHidrotermal = new AlteracionHidrotermal("catalogacion", "alteracion hidrotermal",
-                "descripcion", "institucion", "ff", "p", "cc");
+                "descripcion", "institucion", "t", "p", "cc");
         mCatalogacionRepository.save(alteracionHidrotermal);
 
         // Save ficha de campo

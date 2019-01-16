@@ -1,9 +1,16 @@
 package com.arqapps.catalogacion;
 
 import javax.persistence.Entity;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 @Entity
 public class UnidadGeologica extends Catalogacion {
+    @Size(min = 1, max = 1)
+    @Pattern(regexp = "[emb]", message = "Valoes aceptados: " +
+            "e - Excepcional | " +
+            "m - Mediana | " +
+            "b - Baja")
     private String era;
     private String nomEra;
     private String epoca;
