@@ -1,10 +1,12 @@
 package com.arqapps.catalogacion;
 
 import com.arqapps.core.BaseEntity;
+import com.arqapps.ficha_campo.FichaCampo;
 
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
+import javax.persistence.OneToOne;
 
 @Entity
 @Inheritance
@@ -14,6 +16,9 @@ public abstract class Catalogacion extends BaseEntity {
     private String subcategoria;
     private String descripcion;
     private String institucionGeneradora;
+
+    @OneToOne(mappedBy = "catalogacion")
+    private FichaCampo fichaCampo;
 
     public Catalogacion() {}
 

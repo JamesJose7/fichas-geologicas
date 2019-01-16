@@ -3,8 +3,11 @@ package com.arqapps.ficha_campo;
 import com.arqapps.catalogacion.Catalogacion;
 import com.arqapps.core.BaseEntity;
 import com.arqapps.estructura_geologica.EstructuraGeologica;
+import org.springframework.data.rest.core.annotation.RestResource;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -13,12 +16,18 @@ public class FichaCampo extends BaseEntity {
     private String origenRoca;
     private String unidadGeologica;
     private String contactoGeologico;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ubicacion_id")
+    @RestResource(path = "ubicacionFicha", rel = "ubicacion")
     private Ubicacion ubicacion;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "estructura_geologica_id")
+    @RestResource(path = "estructuraGeologicaFicha", rel = "estructura-geologica")
     private EstructuraGeologica estructuraGeologica;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "catalogacion_id")
+    @RestResource(path = "catalogacionFicha", rel = "catalogacion")
     private Catalogacion catalogacion;
 
     public FichaCampo() { super(); }

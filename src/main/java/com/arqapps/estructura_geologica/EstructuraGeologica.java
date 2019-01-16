@@ -1,10 +1,12 @@
 package com.arqapps.estructura_geologica;
 
 import com.arqapps.core.BaseEntity;
+import com.arqapps.ficha_campo.FichaCampo;
 
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
+import javax.persistence.OneToOne;
 
 @Entity
 @Inheritance
@@ -14,6 +16,9 @@ public abstract class EstructuraGeologica extends BaseEntity {
     private String subcategoria;
     private String descripcion;
     private String institucionGeneradora;
+
+    @OneToOne(mappedBy = "estructuraGeologica")
+    private FichaCampo fichaCampo;
 
     public EstructuraGeologica() {}
 
