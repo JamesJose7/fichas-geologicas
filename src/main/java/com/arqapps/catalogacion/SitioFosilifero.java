@@ -1,11 +1,18 @@
 package com.arqapps.catalogacion;
 
 import javax.persistence.Entity;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 @Entity
 public class SitioFosilifero extends Catalogacion {
     private String localizacion;
     private String nombre;
+    @Size(min = 1, max = 1)
+    @Pattern(regexp = "[emb]", message = "Valoes aceptados: " +
+            "e - Excepcional | " +
+            "m - Mediana | " +
+            "b - Baja")
     private float densidad;
     private String era;
     private String periodo;
