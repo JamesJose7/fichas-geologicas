@@ -3,6 +3,7 @@ package com.arqapps.ficha_campo;
 import com.arqapps.core.BaseEntity;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import java.util.Date;
 
 @Entity
@@ -12,6 +13,9 @@ public class Ubicacion extends BaseEntity {
     private String canton;
     private String sector;
     private String escala;
+
+    @OneToOne(mappedBy = "ubicacion")
+    private FichaCampo fichaCampo;
 
     public Ubicacion() { super(); }
 
@@ -61,5 +65,13 @@ public class Ubicacion extends BaseEntity {
 
     public void setEscala(String escala) {
         this.escala = escala;
+    }
+
+    public FichaCampo getFichaCampo() {
+        return fichaCampo;
+    }
+
+    public void setFichaCampo(FichaCampo fichaCampo) {
+        this.fichaCampo = fichaCampo;
     }
 }

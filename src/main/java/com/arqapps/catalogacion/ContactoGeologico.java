@@ -11,7 +11,8 @@ public class ContactoGeologico extends Catalogacion {
     public ContactoGeologico() {
     }
 
-    public ContactoGeologico(String tipoContacto, String limite, String certeza) {
+    public ContactoGeologico(String categoria, String subcategoria, String descripcion, String institucionGeneradora, String tipoContacto, String limite, String certeza) {
+        super(categoria, subcategoria, descripcion, institucionGeneradora);
         this.tipoContacto = tipoContacto;
         this.limite = limite;
         this.certeza = certeza;

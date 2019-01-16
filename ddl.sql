@@ -157,7 +157,7 @@ CREATE TABLE CATALOGACION
 
 
 
-  /*
+  /* DONE
 t - Temperatura
 cf - Composición del Fluido
 pc - Permeabilidad de la roca
@@ -167,14 +167,14 @@ p - Presión
    */
   constraint ck_alt_hidr_factores check (factores in
                                          ('t ', 'cf', 'pc', 'di', 'c', 'p')),
-  /*
+  /* DONE
   d - Depositación directa
   r - Reemplazo
   l - Lixiviación
      */
   constraint ck_alt_hidr_procesos check (procesos in
                                          ('d ', 'r', 'l')),
-  /*
+  /* DONE
   sf - Silicificación
   st - Sericitización
   ag - Argilitización
@@ -193,7 +193,7 @@ p - Presión
   constraint ck_alt_hidr_clases check (alt_hidr_clases in
                                        ('sf ', 'st', 'ag', 'cl', 'ep', 'ac', 'pl', 'ai', 'cs', 'aa', 'ps', 'sc', 'sk',
                                         'gs')),
-  /*
+  /* DONE
 e - Excepcional
 m - Mediana
 b - Baja
@@ -201,7 +201,7 @@ b - Baja
   constraint ck_sitio_fos_densidad check (densidad in
                                           ('e ', 'm', 'b')),
 
-  /*
+  /* DONE
  p - Paleozóico
  m - Mesozóico
  c - Cenozóico
@@ -697,3 +697,213 @@ tc - Toba cristalina
 /* Constraints
    Estructuras geologicas
 */
+
+ALTER TABLE ESTRUCTURA_GEOLOGICA
+  /*
+ no - Normal
+ in - Inversa
+ dba - De Bajo ángulo
+ dca - De Cabalgamiento
+ tr - Transcurrente
+ trd - Transcurrente dextral
+ trs - Transcurrente sinextral
+ ddb - De Desplazamiento de buzamiento
+ ddo - De Desplazamiento oblicuo
+ ddp - De Despegue
+ lis - Lístrica
+ des - Desconocida
+ */
+  add constraint ck_falla_clase check (clase_falla in
+                                       ('no', 'in', 'dba', 'dca', 'tr', 'trd', 'trs', 'ddb', 'ddo', 'ddp', 'lis',
+                                        'des'));
+ALTER TABLE ESTRUCTURA_GEOLOGICA
+  /*
+    a - Activa
+    i - Inactiva
+    */
+  add constraint ck_falla_estado check (estado in
+                                        ('a', 'i'));
+ALTER TABLE ESTRUCTURA_GEOLOGICA
+  /*
+    in - Inferida
+    ob - Observada
+    fg -Por fotografía
+     */
+  add constraint ck_falla_certeza check (certeza in
+                                         ('in', 'ob', 'fg'));
+ALTER TABLE ESTRUCTURA_GEOLOGICA
+  /*
+    is - Intersección
+    cn - Crenulación
+    eg - Elongación
+    em - Elongación mineral
+    bd - Boudinage
+    cl - Columnar
+    et - Estría
+    sm - Sedimentaria
+    */
+  add constraint ck_estr_lineal_clase check (clase_estr_lineal in
+                                             ('is', 'cn', 'eg', 'em', 'bd', 'cl', 'et', 'sm'));
+ALTER TABLE ESTRUCTURA_GEOLOGICA
+  /*
+  ic - Inclinado
+  ho - Horizontal
+  vt - Vertical
+   */
+  add constraint ck_estr_lineal_lineacion check (lineacion in
+                                                 ('ic', 'ho', 'vt'));
+ALTER TABLE ESTRUCTURA_GEOLOGICA
+  /*
+     s - Suave
+     m - Mediano
+     f - Fuerte
+      */
+  add constraint ck_buzamiento_intensidad check (buzamiento_intensidad in
+                                                 ('s', 'm', 'f'));
+
+ALTER TABLE ESTRUCTURA_GEOLOGICA
+  /*
+  ce - Clivaje espaciado
+  cp - Clivaje penetrativo
+  cf - Clivaje de fractura
+  ci - Clivaje pizarroso
+  cc - Clivaje crenulado
+  cs - Clivaje de solución
+  */
+  add constraint ck_estr_plana_clivaje check (clivaje in
+                                              ('ce', 'cp', 'cf', 'ci', 'cc', 'cs'));
+ALTER TABLE ESTRUCTURA_GEOLOGICA
+  /*
+   cl - Capa inclinada
+   ch - Capa horizontal
+   cv - Capa vertical
+   ci - Capa invertida
+   */
+  add constraint ck_estr_plana_estratificacion check (estratificacion in
+                                                      ('cl', 'ch', 'cv', 'ci'));
+ALTER TABLE ESTRUCTURA_GEOLOGICA
+  /*
+    ii - Inclinación Indeterminada
+    sh - Superficie Horizontal
+    sv - Superficie Vertical
+    in - Inclinación indeterminada invertida
+       */
+  add constraint ck_estr_plana_fotogeologia check (fotogeologia in
+                                                   ('ii', 'sh', 'sv', 'in'));
+ALTER TABLE ESTRUCTURA_GEOLOGICA
+  /*
+    zm - Zonas miloniticas
+    zb - Zona de brechas
+    in - Inclinada
+    cz - Cizalla
+    */
+  add constraint ck_estr_plana_zona_de_cizalla check (zona_de_cizalla in
+                                                      ('zm', 'zb', 'in', 'cz'));
+
+ALTER TABLE ESTRUCTURA_GEOLOGICA
+  /*
+     ic - Inclinado
+     ho - Horizontal
+     vt - Vertical
+      */
+  add constraint ck_dique_clase_dique check (clase_dique in
+                                             ('ic', 'ho', 'vt'));
+ALTER TABLE ESTRUCTURA_GEOLOGICA
+  /*
+    a - Textura_de_roca
+    i - Para porifidica
+    */
+  add constraint ck_dique_textura_de_roca check (textura_de_roca in
+                                                 ('a', 'i'));
+
+ALTER TABLE ESTRUCTURA_GEOLOGICA
+  /*
+   ic - Inclinado
+   ho - Horizontal
+   vt - Vertical
+    */
+  add constraint ck_foliacion_rocas_metaforicas check (rocas_metaforicas in
+                                                       ('ic', 'ho', 'vt'));
+ALTER TABLE ESTRUCTURA_GEOLOGICA
+  /*
+     ic - Inclinado
+     ho - Horizontal
+     vt - Vertical
+      */
+  add constraint ck_foliacion_rocas_igneas check (rocas_igneas in
+                                                  ('ic', 'ho', 'vt'));
+ALTER TABLE ESTRUCTURA_GEOLOGICA
+  /*
+    a - sistema paralelas
+    i - diaclasas que se cortan
+    */
+  add constraint ck_diaclasa_asociacion check (asociacion in
+                                               ('a', 'i'));
+
+
+ALTER TABLE ESTRUCTURA_GEOLOGICA
+  /*
+  d - Deshidratación
+  e - Enfriamiento
+  r - Recristalización
+      */
+  add constraint ck_diaclasa_formacion check (formacion in
+                                              ('d', 'e', 'r'));
+ALTER TABLE ESTRUCTURA_GEOLOGICA
+  /*
+       ic - Inclinado
+       ho - Horizontal
+       vt - Vertical
+        */
+  add constraint ck_diaclasa_clase check (diaclasa_clase in
+                                          ('ic', 'ho', 'vt'));
+ALTER TABLE ESTRUCTURA_GEOLOGICA
+  /*
+  af - Antiforme
+  sf - Sinforme
+  nt - Neutro
+  ac - Anticlinal
+  sc - Sinclinal
+  mc - Monoclinal
+       */
+  add constraint ck_pliegue_tipo check (tipo in
+                                        ('af', 'sf', 'nt', 'ac', 'sc', 'mc'));
+ALTER TABLE ESTRUCTURA_GEOLOGICA
+  /*
+    p - Parado
+    i - Inclinado
+    r - Recumbente
+    s - Sobreplegado
+           */
+  add constraint ck_pliegue_posicion check (posicion in
+                                            ('p', 'i', 'r', 's'));
+ALTER TABLE ESTRUCTURA_GEOLOGICA
+  /*
+  l - Leve
+  a - Abierto
+  c - Cerrado
+  p - Apretado
+  i - Isoclinal
+             */
+  add constraint ck_pliegue_angulo_entre_flancos check (angulo_entre_flancos in
+                                                        ('l', 'a', 'c', 'p', 'i'));
+ALTER TABLE ESTRUCTURA_GEOLOGICA
+  /*
+p - Paralelo (Concéntrico)
+s - Similar
+a - En acordeón (Chevron)
+   */
+  add constraint ck_pliegue_perfil check (perfil in
+                                          ('p', 's', 'a'));
+ALTER TABLE ESTRUCTURA_GEOLOGICA
+  /*
+    s - Simétricos
+    a - Asimétricos
+    p - Parásitos (Satélites)
+    u - Armonicos
+    d - Desarmónicos
+    c - Conjugados
+    l - Policlinales
+           */
+  add constraint ck_pliegue_sistema check (sistema in
+                                           ('s', 'a', 'p', 'u', 'd', 'c', 'l'));
