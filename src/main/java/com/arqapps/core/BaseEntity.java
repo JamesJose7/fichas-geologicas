@@ -8,7 +8,10 @@ import javax.persistence.MappedSuperclass;
 @MappedSuperclass
 public abstract class BaseEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    //Postgress
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //MySQL
+    //@GeneratedValue(strategy = GenerationType.AUTO)
     private final Long id;
 
     protected BaseEntity() {
