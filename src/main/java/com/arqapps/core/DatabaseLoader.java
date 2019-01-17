@@ -2,16 +2,13 @@ package com.arqapps.core;
 
 import com.arqapps.catalogacion.AlteracionHidrotermal;
 import com.arqapps.catalogacion.Catalogacion;
-import com.arqapps.catalogacion.CatalogacionRepository;
 import com.arqapps.catalogacion.ContactoGeologico;
 import com.arqapps.estructura_geologica.Dique;
 import com.arqapps.estructura_geologica.EstructuraGeologica;
-import com.arqapps.estructura_geologica.EstructuraGeologicaRepository;
 import com.arqapps.estructura_geologica.Foliacion;
 import com.arqapps.ficha_campo.FichaCampo;
 import com.arqapps.ficha_campo.FichaCampoRepository;
 import com.arqapps.ficha_campo.Ubicacion;
-import com.arqapps.ficha_campo.UbicacionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -26,19 +23,10 @@ import java.util.stream.IntStream;
 @Component
 public class DatabaseLoader implements ApplicationRunner {
     private final FichaCampoRepository fichas;
-    private final UbicacionRepository ubicaciones;
-
-    private final EstructuraGeologicaRepository mEstructuraGeologicaRepository;
-    private final CatalogacionRepository mCatalogacionRepository;
 
     @Autowired
-    public DatabaseLoader(FichaCampoRepository fichas, UbicacionRepository ubicaciones,
-                          EstructuraGeologicaRepository estructuraGeologicaRepository,
-                          CatalogacionRepository catalogacionRepository) {
+    public DatabaseLoader(FichaCampoRepository fichas) {
         this.fichas = fichas;
-        this.ubicaciones = ubicaciones;
-        mEstructuraGeologicaRepository = estructuraGeologicaRepository;
-        mCatalogacionRepository = catalogacionRepository;
     }
 
     @Override
