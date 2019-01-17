@@ -23,6 +23,8 @@
 # Gradle
 .idea/**/gradle.xml
 .idea/**/libraries
+.gradle/4.10/vcsMetadata-1/
+.idea/dataSources.xml
 
 # Gradle and Maven with auto-import
 # When using Gradle or Maven with auto-import, you should exclude module files,
@@ -90,3 +92,7 @@ fabric.properties
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+# Exclude these files from the rules
+!gradle/wrapper/gradle-wrapper.jar
+
