@@ -1,12 +1,16 @@
 package com.arqapps.estructura_geologica;
 
+import com.arqapps.core.BaseEntity;
+import com.arqapps.ficha_campo.FichaCampo;
+
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 
 @Entity
-public class Pliegue extends EstructuraGeologica {
+public class Pliegue extends BaseEntity {
     private float rumbo;
     private float buzamiento;
-    private String tipoContacto;
+    private String tipo;
     private float altura;
     private float separacion;
     private String posicion;
@@ -14,12 +18,17 @@ public class Pliegue extends EstructuraGeologica {
     private String perfil;
     private String sistema;
 
-    public Pliegue(String categoria, String subcategoria, String descripcion, String institucionGeneradora, float rumbo,
-                   float buzamiento, String tipoContacto, float altura, float separacion, String posicion, String anguloEntreFlancos, String perfil, String sistema) {
-        super(categoria, subcategoria, descripcion, institucionGeneradora);
+    @OneToOne(mappedBy = "pliegue")
+    private FichaCampo fichaCampo;
+
+    public Pliegue() {
+    }
+
+    public Pliegue(float rumbo, float buzamiento, String tipo, float altura, float separacion,
+                   String posicion, String anguloEntreFlancos, String perfil, String sistema) {
         this.rumbo = rumbo;
         this.buzamiento = buzamiento;
-        this.tipoContacto = tipoContacto;
+        this.tipo = tipo;
         this.altura = altura;
         this.separacion = separacion;
         this.posicion = posicion;
@@ -44,12 +53,12 @@ public class Pliegue extends EstructuraGeologica {
         this.buzamiento = buzamiento;
     }
 
-    public String getTipoContacto() {
-        return tipoContacto;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setTipoContacto(String tipoContacto) {
-        this.tipoContacto = tipoContacto;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     public float getAltura() {
@@ -98,5 +107,13 @@ public class Pliegue extends EstructuraGeologica {
 
     public void setSistema(String sistema) {
         this.sistema = sistema;
+    }
+
+    public FichaCampo getFichaCampo() {
+        return fichaCampo;
+    }
+
+    public void setFichaCampo(FichaCampo fichaCampo) {
+        this.fichaCampo = fichaCampo;
     }
 }

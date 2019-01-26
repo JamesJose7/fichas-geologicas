@@ -1,160 +1,117 @@
-CREATE TABLE FICHA_CAMPO
+create table ficha_campo
 (
-  id                      INTEGER not NULL AUTO_INCREMENT,
-  muestra                 VARCHAR(255),
-  origen_roca             VARCHAR(255),
-  unidad_geologica        VARCHAR(255),
-  contacto_geologico      VARCHAR(255),
-  ubicacion_id            INTEGER,
-  estructura_geologica_id INTEGER,
-  catalogacion_id         INTEGER,
-  PRIMARY KEY (id)
+  id                            SERIAL
+    primary key,
+  datum                         varchar(255),
+  escala                        varchar(255),
+  proyecto                      varchar(255),
+  datos_ubicacion               text,
+  descrita_por                  varchar(255),
+  ubicacion_id                  int,
+  nomenclatura_unidad_geologica varchar(2),
+  # Contacto geologico
+  tipo_contacto_geo             varchar(2),
+  limite_contacto_geo           varchar(2),
+  certeza_contacto_geo          varchar(2),
+  # Roca
+  origen_roca                   varchar(2),
+  estructura_roca               varchar(2),
+  # Estructuras
+  pliegue_id                    int,
+  estructura_lineal_id          int,
+  estructura_planar_id          int,
+  # Catalogaciones
+  muestra_id                    int,
+  contacto_geologico_id         int,
+  afloramiento_id               int,
+  roca_id                       int
 );
 
-CREATE TABLE UBICACION
+create table ubicacion
 (
-  id        INTEGER not NULL AUTO_INCREMENT,
-  fecha     VARCHAR(255),
-  escala    VARCHAR(255),
-  provincia VARCHAR(255),
-  canton    VARCHAR(255),
-  sector    VARCHAR(55),
-  foto      BLOB,
-  PRIMARY KEY (id)
+  id        SERIAL
+    primary key,
+  fecha     varchar(255),
+  provincia varchar(255),
+  canton    varchar(255),
+  sector    varchar(55),
+  escala    varchar(255),
+  foto      blob
 );
 
+# Catalogaciones
 
-# Estructura geologica
-CREATE TABLE ESTRUCTURA_GEOLOGICA
+create table muestra
 (
-  id                        INTEGER not NULL AUTO_INCREMENT,
-  categoria                 VARCHAR(255),
-  subcategoria              VARCHAR(255),
-  descripcion               TEXT,
-  institucion_generadora    VARCHAR(255),
-  estructura_geologica_type VARCHAR(255),
-
-  # SUBTIPOS
-  # Falla
-  # Campo comun para:estructura_lineal, diaclasa y falla
-  rumbo                     FLOAT,
-  # Campo comun para: estructura_lineal, Estructura_plana, falla, pliegue
-  buzamiento                FLOAT,
-  azimut                    FLOAT,
-  clase_falla               VARCHAR(3),
-  estado                    VARCHAR(1),
-  certeza                   VARCHAR(2),
-  escarpe                   VARCHAR(255),
-  #   estructura_lineal
-  clase_estr_lineal         VARCHAR(2),
-  lineacion                 VARCHAR(2),
-  #   Estructura_plana
-  #   Campo comun para estructura_plana y diaclasa
-  buzamiento_intensidad     varchar(1),
-  clivaje                   VARCHAR(2),
-  estratificacion           VARCHAR(2),
-  fotogeologia              VARCHAR(2),
-  zona_de_cizalla           VARCHAR(2),
-  #  Dique
-  clase_dique               VARCHAR(2),
-  textura_de_roca           VARCHAR(1),
-  # Foliacion
-  rocas_metaforicas         VARCHAR(2),
-  rocas_igneas              VARCHAR(2),
-  #   diaclasa
-  direccion                 FLOAT,
-  asociacion                VARCHAR(1),
-  formacion                 VARCHAR(1),
-  diaclasa_clase            VARCHAR(2),
-  # Pliegue
-  tipo_contacto             VARCHAR(2),
-  altura                    float,
-  separacion                float,
-  posicion                  varchar(1),
-  angulo_entre_flancos      varchar(1),
-  perfil                    varchar(1),
-  sistema                   VARCHAR(1),
-
-
-  PRIMARY KEY (id)
-
+  id                           SERIAL
+    primary key,
+  naturaleza                   varchar(255),
+  tipo                         varchar(255),
+  consistencia_material        varchar(2),
+  codigo                       long,
+  sitio                        varchar(2),
+  tipo_analisis                varchar(2),
+  metodo_analisis              varchar(2),
+  nomenclatura_metodo_analisis varchar(2),
+  cantidad_muestra             float,
+  observaciones                varchar(2)
 );
 
-# Catalogacion
-CREATE TABLE CATALOGACION
+create table afloramiento
 (
-  id                     INTEGER not NULL AUTO_INCREMENT,
-  categoria              VARCHAR(255),
-  subcategoria           VARCHAR(255),
-  descripcion            TEXT,
-  institucion_generadora VARCHAR(255),
-  catalogacion_type      VARCHAR(255),
+  id        SERIAL
+    primary key,
+  dimension varchar(2),
+  origen    varchar(2),
+  tipo_roca varchar(2),
+  sitio     varchar(2)
+);
 
-  # SUBTIPOS
-  #   alteracion_hidrotermal
-  factores               VARCHAR(2),
-  procesos               VARCHAR(1),
-  alt_hidr_clases        VARCHAR(55),
-  #   sitio_fosilifero
-  localizacion           VARCHAR(55),
-  nombre                 VARCHAR(55),
-  densidad               VARCHAR(2),
-  era                    VARCHAR(2),
-  periodo                VARCHAR(2),
-  epoca                  VARCHAR(3),
-  piso                   VARCHAR(3),
-  # muestra
-  naturaleza             VARCHAR(55),
-  tipo_muestra           VARCHAR(55),
-  consistencia_material  VARCHAR(55),
-  codigo                 FLOAT,
-  #   sitio campo comun muestra y afloramiento
-  sitio                  VARCHAR(55),
-  tipo_analisis          VARCHAR(55),
-  metodo_analisis        VARCHAR(55),
-  nom_metodo_analisis    VARCHAR(55),
-  cantidad_muestra       FLOAT,
-  observaciones         VARCHAR(255),
-  #   fosil
-  tipo_fosil             VARCHAR(55),
-  reino                  VARCHAR(55),
-  clase_fosil            VARCHAR(55),
-  flora                  VARCHAR(55),
-  fauna                  VARCHAR(55),
-  tamanio                 FLOAT,
-  #   afloramiento
-  dimension              FLOAT,
-  origen_roca            VARCHAR(2),
-  #   contacto_geologico
-  limite                 VARCHAR(55),
-  tipo_contacto          VARCHAR(55),
-  certeza                VARCHAR(55),
-  #   roca
-  tipo_roca              VARCHAR(55),
-  estructura             VARCHAR(55),
-  #   deposito_superficial
-  clase_deposito         VARCHAR(55),
-  #   dominio_litotectonico
-  region                 VARCHAR(55),
-  #   muestra de datacion
-  codigo_datacion       LONG,
-  fecha_datacion        VARCHAR(255),
-  sitio_datacion        VARCHAR(255),
-  metodo_datacion_radiometrica VARCHAR(255),
-  #   unidad geologica
-  nom_era        VARCHAR(255),
-  nom_epoca       VARCHAR(255),
-  nom_piso        VARCHAR(255),
-  jerarquia        VARCHAR(255),
-  nombre_unidad_geologica        VARCHAR(255),
-  nombre_intrusivo        VARCHAR(255),
-  nom_intrusivo        VARCHAR(255),
-  nom_periodo        VARCHAR(255),
+# Estructuras geologicas
+create table estructura_planar
+(
+  id                    SERIAL
+    primary key,
+  buzamiento_intensidad varchar(2),
+  azimut                float,
+  clivaje               varchar(2),
+  estratificacion       varchar(2),
+  fotogeologia          varchar(2),
+  zona_de_cizalla       varchar(2),
+  # foliacion
+  rocas_metaforicas     varchar(2),
+  rocas_igneas          varchar(2)
+);
 
+create table estructura_lineal
+(
+  id                SERIAL
+    primary key,
+  rumbo             float,
+  clase_estr_lineal varchar(2),
+  lineacion         varchar(2),
+  # diaclasa
+  direccion         float,
+  buzamiento        varchar(2),
+  asociacion        varchar(2),
+  formacion         varchar(2),
+  diaclasa_clase    varchar(2)
+);
 
-
-  PRIMARY KEY (id));
-
+create table pliegue
+(
+  id                   SERIAL
+    primary key,
+  rumbo                float,
+  buzamiento           float,
+  tipo                 varchar(2),
+  altura               float,
+  separacion           float,
+  posicion             varchar(2),
+  angulo_entre_flancos varchar(2),
+  perfil               varchar(2),
+  sistema              varchar(2)
+);
 
 
   /* DONE

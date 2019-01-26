@@ -1,10 +1,8 @@
 package com.arqapps.catalogacion;
 
+import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RestResource;
 
-import javax.transaction.Transactional;
-
-@Transactional
-@RestResource(path = "afloramientos", rel = "CAT-afloramientos")
-public interface AfloramientoRepository extends CatalogacionBaseRepository<Afloramiento> {
+@RestResource(path = "afloramientos", rel = "afloramientos")
+public interface AfloramientoRepository extends PagingAndSortingRepository<Afloramiento, Long> {
 }

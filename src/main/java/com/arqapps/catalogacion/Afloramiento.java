@@ -1,38 +1,45 @@
 package com.arqapps.catalogacion;
 
+import com.arqapps.core.BaseEntity;
+import com.arqapps.ficha_campo.FichaCampo;
+
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 
 @Entity
-public class Afloramiento extends Catalogacion {
-    private float dimension;
-    private String origenRoca;
+public class Afloramiento extends BaseEntity {
+    private String dimension;
+    private String origen;
     private String tipoRoca;
     private String sitio;
+
+    @OneToOne(mappedBy = "afloramiento")
+    private FichaCampo fichaCampo;
 
     public Afloramiento() {
     }
 
-    public Afloramiento(float dimension, String origenRoca, String tipoRoca, String sitio) {
+    public Afloramiento(String dimension, String origen, String tipoRoca, String sitio) {
         this.dimension = dimension;
-        this.origenRoca = origenRoca;
+        this.origen = origen;
         this.tipoRoca = tipoRoca;
         this.sitio = sitio;
     }
 
-    public float getDimension() {
+    public String getDimension() {
         return dimension;
     }
 
-    public void setDimension(float dimension) {
+    public void setDimension(String dimension) {
         this.dimension = dimension;
     }
 
-    public String getOrigenRoca() {
-        return origenRoca;
+    public String getOrigen() {
+        return origen;
     }
 
-    public void setOrigenRoca(String origenRoca) {
-        this.origenRoca = origenRoca;
+    public void setOrigen(String origen) {
+        this.origen = origen;
     }
 
     public String getTipoRoca() {
@@ -49,5 +56,13 @@ public class Afloramiento extends Catalogacion {
 
     public void setSitio(String sitio) {
         this.sitio = sitio;
+    }
+
+    public FichaCampo getFichaCampo() {
+        return fichaCampo;
+    }
+
+    public void setFichaCampo(FichaCampo fichaCampo) {
+        this.fichaCampo = fichaCampo;
     }
 }

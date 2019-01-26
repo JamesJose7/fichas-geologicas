@@ -1,11 +1,10 @@
 package com.arqapps.core;
 
-import com.arqapps.catalogacion.AlteracionHidrotermal;
-import com.arqapps.catalogacion.Catalogacion;
-import com.arqapps.catalogacion.ContactoGeologico;
-import com.arqapps.estructura_geologica.Dique;
-import com.arqapps.estructura_geologica.EstructuraGeologica;
-import com.arqapps.estructura_geologica.Foliacion;
+import com.arqapps.catalogacion.Afloramiento;
+import com.arqapps.catalogacion.Muestra;
+import com.arqapps.estructura_geologica.EstructuraLineal;
+import com.arqapps.estructura_geologica.EstructuraPlanar;
+import com.arqapps.estructura_geologica.Pliegue;
 import com.arqapps.ficha_campo.FichaCampo;
 import com.arqapps.ficha_campo.FichaCampoRepository;
 import com.arqapps.ficha_campo.Ubicacion;
@@ -33,35 +32,6 @@ public class DatabaseLoader implements ApplicationRunner {
     public void run(ApplicationArguments args) {
         // Delete previous data !!!
         fichas.deleteAll();
-
-        /*// Ficha de campo
-        FichaCampo ficha = new FichaCampo("Muestra", "origen", "unidad", "contacto");
-        FichaCampo ficha2 = new FichaCampo("Muestra", "origen", "unidad", "contacto");
-
-        // Ubicacion de ficha de campo
-        Ubicacion ubicacion = new Ubicacion(new Date(), "dd", "dd", "d", "fsdf");
-        Ubicacion ubicacion2 = new Ubicacion(new Date(), "sdf", "sdf", "fsd", "fsdf");
-
-        // Estructuras geologicas
-        Dique dique = new Dique("estructura geologica", "dique", "description", "institucion",
-                "c", "c");
-        Foliacion foliacion = new Foliacion("estructura geologica", "foliacion", "description", "institucion",
-                "m", "i");
-
-        // Catalogacion
-        AlteracionHidrotermal alteracionHidrotermal = new AlteracionHidrotermal("catalogacion", "alteracion hidrotermal",
-                "descripcion", "institucion", "cr", "d", "gs");
-
-        // Save ficha de campo
-        ficha.setUbicacion(ubicacion);
-        ficha.setEstructuraGeologica(dique);
-        ficha.setCatalogacion(alteracionHidrotermal);
-        fichas.save(ficha);
-        ficha2.setUbicacion(ubicacion2);
-        ficha2.setEstructuraGeologica(foliacion);
-        ficha2.setCatalogacion(new AlteracionHidrotermal());
-        fichas.save(ficha2);*/
-
 
         // Generate test data
 
@@ -144,8 +114,90 @@ public class DatabaseLoader implements ApplicationRunner {
         };
 
         List<FichaCampo> generatedFichas = new ArrayList<>();
-        // Create 25 Fichas with Diques and Alteracion Hidrotermal
+
         IntStream.range(0, 25)
+                .forEach(i -> {
+                    //Ubicacion
+                    Ubicacion ranUbicacion = new Ubicacion(getRandomDate(),
+                            provincias[i % provincias.length],
+                            cantones[i % cantones.length],
+                            parroquias[i % parroquias.length],
+                            randBetween(1, 10) + "");
+                    // Catalogaciones
+                    Muestra muestra = new Muestra(
+                            clases[i % clases.length],
+                            clases[i % clases.length],
+                            clases[i % clases.length],
+                            randBetween(50, 500),
+                            clases[i % clases.length],
+                            clases[i % clases.length],
+                            clases[i % clases.length],
+                            clases[i % clases.length],
+                            randBetween(600, 1000),
+                            clases[i % clases.length]
+                            );
+                    Afloramiento afloramiento = new Afloramiento(
+                            clases[i % clases.length],
+                            clases[i % clases.length],
+                            clases[i % clases.length],
+                            clases[i % clases.length]
+                            );
+                    // Estructuras Geologicas
+                    EstructuraPlanar estructuraPlanar = new EstructuraPlanar(
+                            clases[i % clases.length],
+                            randBetween(20, 500),
+                            clases[i % clases.length],
+                            clases[i % clases.length],
+                            clases[i % clases.length],
+                            clases[i % clases.length],
+                            clases[i % clases.length],
+                            clases[i % clases.length]
+                            );
+                    EstructuraLineal estructuraLineal = new EstructuraLineal(
+                            randBetween(20, 200),
+                            clases[i % clases.length],
+                            clases[i % clases.length],
+                            randBetween(500, 999),
+                            clases[i % clases.length],
+                            clases[i % clases.length],
+                            clases[i % clases.length],
+                            clases[i % clases.length]
+                            );
+                    Pliegue pliegue = new Pliegue(
+                            randBetween(500, 888),
+                            randBetween(10, 100),
+                            clases[i % clases.length],
+                            randBetween(100, 500),
+                            randBetween(100, 500),
+                            clases[i % clases.length],
+                            clases[i % clases.length],
+                            clases[i % clases.length],
+                            clases[i % clases.length]
+                            );
+                    FichaCampo fichaCampo = new FichaCampo(
+                            "datum " + randBetween(100, 1000),
+                            "escala " + randBetween(100, 1000),
+                            "proyecto " + randBetween(100, 1000),
+                            getLorem(randBetween(1, 5)),
+                            "descritaPor " + randBetween(100, 1000),
+                            clases[i % clases.length],
+                            clases[i % clases.length],
+                            clases[i % clases.length],
+                            clases[i % clases.length],
+                            clases[i % clases.length],
+                            clases[i % clases.length]
+                    );
+                    fichaCampo.setUbicacion(ranUbicacion);
+                    fichaCampo.setMuestra(muestra);
+                    fichaCampo.setAfloramiento(afloramiento);
+                    fichaCampo.setEstructuraPlanar(estructuraPlanar);
+                    fichaCampo.setEstructuraLineal(estructuraLineal);
+                    fichaCampo.setPliegue(pliegue);
+                    generatedFichas.add(fichaCampo);
+                });
+
+        // Create 25 Fichas with Diques and Alteracion Hidrotermal
+        /*IntStream.range(0, 25)
                 .forEach(i -> {
                     //Ubicacion
                     Ubicacion ranUbicacion = new Ubicacion(getRandomDate(),
@@ -176,40 +228,7 @@ public class DatabaseLoader implements ApplicationRunner {
                     fichaCampo.setEstructuraGeologica(randDique);
                     fichaCampo.setCatalogacion(ranAltHidro);
                     generatedFichas.add(fichaCampo);
-                });
-        // Create 25 Fichas with Foliaciones and Contactos geologicos
-        IntStream.range(0, 25)
-                .forEach(i -> {
-                    //Ubicacion
-                    Ubicacion ranUbicacion = new Ubicacion(getRandomDate(),
-                            provincias[i % provincias.length],
-                            cantones[i % cantones.length],
-                            parroquias[i % parroquias.length],
-                            randBetween(1, 10) + "");
-                    // Foliacion - Estr Geologica
-                    EstructuraGeologica randFoliacion = new Foliacion("estructura geologica",
-                            "foliacion",
-                            "descripcion" + randBetween(1, 50),
-                            "institucion" + randBetween(1, 50),
-                            rocasMetaforicas[i % rocasMetaforicas.length],
-                            texturasRoca[i % texturasRoca.length]);
-                    // Contacto geologico - Catalogacion
-                    Catalogacion randContactoGeo = new ContactoGeologico("catalogacion",
-                            "Contacto geologico",
-                            "descripcion" + randBetween(1, 50),
-                            "institucion" + randBetween(1, 50),
-                            tipos[i % tipos.length],
-                            limites[i % limites.length],
-                            certezas[i % certezas.length]);
-                    FichaCampo fichaCampo = new FichaCampo("muestra " + randBetween(200, 2000),
-                            "origen " + randBetween(200, 2000),
-                            "unidad geologica " + randBetween(200, 2000),
-                            "contacto " + randBetween(200, 2000));
-                    fichaCampo.setUbicacion(ranUbicacion);
-                    fichaCampo.setEstructuraGeologica(randFoliacion);
-                    fichaCampo.setCatalogacion(randContactoGeo);
-                    generatedFichas.add(fichaCampo);
-                });
+                });*/
 
         fichas.save(generatedFichas);
 
@@ -222,5 +241,15 @@ public class DatabaseLoader implements ApplicationRunner {
 
     private int randBetween(int start, int end) {
         return start + (int)Math.round(Math.random() * (end - start));
+    }
+
+    private String getLorem(int repeats) {
+        String lorem = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n" +
+                "tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n" +
+                "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n" +
+                "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\n" +
+                "cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\n" +
+                "proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ";
+        return lorem.repeat(repeats);
     }
 }

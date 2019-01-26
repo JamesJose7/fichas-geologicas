@@ -13,6 +13,7 @@ public class Ubicacion extends BaseEntity {
     private String canton;
     private String sector;
     private String escala;
+    private byte[] foto;
 
     @OneToOne(mappedBy = "ubicacion")
     private FichaCampo fichaCampo;
@@ -73,5 +74,13 @@ public class Ubicacion extends BaseEntity {
 
     public void setFichaCampo(FichaCampo fichaCampo) {
         this.fichaCampo = fichaCampo;
+    }
+
+    public byte[] getFoto() {
+        return foto;
+    }
+
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
     }
 }

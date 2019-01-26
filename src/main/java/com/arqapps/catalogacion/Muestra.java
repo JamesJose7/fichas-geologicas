@@ -1,32 +1,41 @@
 package com.arqapps.catalogacion;
 
+import com.arqapps.core.BaseEntity;
+import com.arqapps.ficha_campo.FichaCampo;
+
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 
 @Entity
-public class Muestra extends Catalogacion {
+public class Muestra extends BaseEntity {
     private String naturaleza;
-    private String tipoMuestra;
+    private String tipo;
     private String consistenciaMaterial;
-    private String codigo;
+    private long codigo;
     private String sitio;
     private String tipoAnalisis;
     private String metodoAnalisis;
-    private String nomMetodoAnalisis;
-    private String cantidadMuestra;
+    private String nomenclaturaMetodoAnalisis;
+    private float cantidadMuestra;
     private String observaciones;
+
+    @OneToOne(mappedBy = "muestra")
+    private FichaCampo fichaCampo;
 
     public Muestra() {
     }
 
-    public Muestra(String naturaleza, String tipoMuestra, String consistenciaMaterial, String codigo, String sitio, String tipoAnalisis, String metodoAnalisis, String nomMetodoAnalisis, String cantidadMuestra, String observaciones) {
+    public Muestra(String naturaleza, String tipo, String consistenciaMaterial, long codigo, String sitio,
+                   String tipoAnalisis, String metodoAnalisis, String nomenclaturaMetodoAnalisis,
+                   float cantidadMuestra, String observaciones) {
         this.naturaleza = naturaleza;
-        this.tipoMuestra = tipoMuestra;
+        this.tipo = tipo;
         this.consistenciaMaterial = consistenciaMaterial;
         this.codigo = codigo;
         this.sitio = sitio;
         this.tipoAnalisis = tipoAnalisis;
         this.metodoAnalisis = metodoAnalisis;
-        this.nomMetodoAnalisis = nomMetodoAnalisis;
+        this.nomenclaturaMetodoAnalisis = nomenclaturaMetodoAnalisis;
         this.cantidadMuestra = cantidadMuestra;
         this.observaciones = observaciones;
     }
@@ -39,12 +48,12 @@ public class Muestra extends Catalogacion {
         this.naturaleza = naturaleza;
     }
 
-    public String getTipoMuestra() {
-        return tipoMuestra;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setTipoMuestra(String tipoMuestra) {
-        this.tipoMuestra = tipoMuestra;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     public String getConsistenciaMaterial() {
@@ -55,11 +64,11 @@ public class Muestra extends Catalogacion {
         this.consistenciaMaterial = consistenciaMaterial;
     }
 
-    public String getCodigo() {
+    public long getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(String codigo) {
+    public void setCodigo(long codigo) {
         this.codigo = codigo;
     }
 
@@ -87,19 +96,19 @@ public class Muestra extends Catalogacion {
         this.metodoAnalisis = metodoAnalisis;
     }
 
-    public String getNomMetodoAnalisis() {
-        return nomMetodoAnalisis;
+    public String getNomenclaturaMetodoAnalisis() {
+        return nomenclaturaMetodoAnalisis;
     }
 
-    public void setNomMetodoAnalisis(String nomMetodoAnalisis) {
-        this.nomMetodoAnalisis = nomMetodoAnalisis;
+    public void setNomenclaturaMetodoAnalisis(String nomenclaturaMetodoAnalisis) {
+        this.nomenclaturaMetodoAnalisis = nomenclaturaMetodoAnalisis;
     }
 
-    public String getCantidadMuestra() {
+    public float getCantidadMuestra() {
         return cantidadMuestra;
     }
 
-    public void setCantidadMuestra(String cantidadMuestra) {
+    public void setCantidadMuestra(float cantidadMuestra) {
         this.cantidadMuestra = cantidadMuestra;
     }
 
@@ -109,5 +118,13 @@ public class Muestra extends Catalogacion {
 
     public void setObservaciones(String observaciones) {
         this.observaciones = observaciones;
+    }
+
+    public FichaCampo getFichaCampo() {
+        return fichaCampo;
+    }
+
+    public void setFichaCampo(FichaCampo fichaCampo) {
+        this.fichaCampo = fichaCampo;
     }
 }

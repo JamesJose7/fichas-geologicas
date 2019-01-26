@@ -1,74 +1,111 @@
 package com.arqapps.ficha_campo;
 
-import com.arqapps.catalogacion.Catalogacion;
+import com.arqapps.catalogacion.Afloramiento;
+import com.arqapps.catalogacion.Muestra;
 import com.arqapps.core.BaseEntity;
-import com.arqapps.estructura_geologica.EstructuraGeologica;
+import com.arqapps.estructura_geologica.EstructuraLineal;
+import com.arqapps.estructura_geologica.EstructuraPlanar;
+import com.arqapps.estructura_geologica.Pliegue;
 import org.springframework.data.rest.core.annotation.RestResource;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
 public class FichaCampo extends BaseEntity {
-    private String muestra;
+    private String datum;
+    private String escala;
+    private String proyecto;
+    private String datosUbicacion;
+    private String descritaPor;
+    private String nomenclaturaUnidadGeologica;
+    private String tipoContactoGeo;
+    private String limiteContactoGeo;
+    private String certezaContactoGeo;
     private String origenRoca;
-    private String unidadGeologica;
-    private String contactoGeologico;
+    private String estructuraRoca;
+
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ubicacion_id")
     @RestResource(path = "ubicacionFicha", rel = "ubicacion")
     private Ubicacion ubicacion;
 
+    // Estructuras Geologicas
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "estructura_geologica_id")
-    @RestResource(path = "estructuraGeologicaFicha", rel = "estructura-geologica")
-    private EstructuraGeologica estructuraGeologica;
+    @RestResource(path = "estructuraPlanarFicha", rel = "estructura-planar")
+    private EstructuraPlanar estructuraPlanar;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "catalogacion_id")
-    @RestResource(path = "catalogacionFicha", rel = "catalogacion")
-    private Catalogacion catalogacion;
+    @RestResource(path = "estructuraLinealFicha", rel = "estructura-lineal")
+    private EstructuraLineal estructuraLineal;
+    @OneToOne(cascade = CascadeType.ALL)
+    @RestResource(path = "pliegueFicha", rel = "pliegue")
+    private Pliegue pliegue;
+
+    // Catalogaciones
+    @OneToOne(cascade = CascadeType.ALL)
+    @RestResource(path = "muestraFicha", rel = "muestra")
+    private Muestra muestra;
+    @OneToOne(cascade = CascadeType.ALL)
+    @RestResource(path = "afloramientoFicha", rel = "afloramiento")
+    private Afloramiento afloramiento;
+
 
     public FichaCampo() { super(); }
 
-    public FichaCampo(String muestra, String origenRoca, String unidadGeologica, String contactoGeologico) {
-        this.muestra = muestra;
+    public FichaCampo(String datum, String escala, String proyecto, String datosUbicacion, String descritaPor,
+                      String nomenclaturaUnidadGeologica, String tipoContactoGeo, String limiteContactoGeo,
+                      String certezaContactoGeo, String origenRoca, String estructuraRoca) {
+        this.datum = datum;
+        this.escala = escala;
+        this.proyecto = proyecto;
+        this.datosUbicacion = datosUbicacion;
+        this.descritaPor = descritaPor;
+        this.nomenclaturaUnidadGeologica = nomenclaturaUnidadGeologica;
+        this.tipoContactoGeo = tipoContactoGeo;
+        this.limiteContactoGeo = limiteContactoGeo;
+        this.certezaContactoGeo = certezaContactoGeo;
         this.origenRoca = origenRoca;
-        this.unidadGeologica = unidadGeologica;
-        this.contactoGeologico = contactoGeologico;
+        this.estructuraRoca = estructuraRoca;
     }
 
-    public String getMuestra() {
-        return muestra;
+    public String getDatum() {
+        return datum;
     }
 
-    public void setMuestra(String muestra) {
-        this.muestra = muestra;
+    public void setDatum(String datum) {
+        this.datum = datum;
     }
 
-    public String getOrigenRoca() {
-        return origenRoca;
+    public String getEscala() {
+        return escala;
     }
 
-    public void setOrigenRoca(String origenRoca) {
-        this.origenRoca = origenRoca;
+    public void setEscala(String escala) {
+        this.escala = escala;
     }
 
-    public String getUnidadGeologica() {
-        return unidadGeologica;
+    public String getProyecto() {
+        return proyecto;
     }
 
-    public void setUnidadGeologica(String unidadGeologica) {
-        this.unidadGeologica = unidadGeologica;
+    public void setProyecto(String proyecto) {
+        this.proyecto = proyecto;
     }
 
-    public String getContactoGeologico() {
-        return contactoGeologico;
+    public String getDatosUbicacion() {
+        return datosUbicacion;
     }
 
-    public void setContactoGeologico(String contactoGeologico) {
-        this.contactoGeologico = contactoGeologico;
+    public void setDatosUbicacion(String datosUbicacion) {
+        this.datosUbicacion = datosUbicacion;
+    }
+
+    public String getDescritaPor() {
+        return descritaPor;
+    }
+
+    public void setDescritaPor(String descritaPor) {
+        this.descritaPor = descritaPor;
     }
 
     public Ubicacion getUbicacion() {
@@ -79,19 +116,91 @@ public class FichaCampo extends BaseEntity {
         this.ubicacion = ubicacion;
     }
 
-    public EstructuraGeologica getEstructuraGeologica() {
-        return estructuraGeologica;
+    public EstructuraPlanar getEstructuraPlanar() {
+        return estructuraPlanar;
     }
 
-    public void setEstructuraGeologica(EstructuraGeologica estructuraGeologica) {
-        this.estructuraGeologica = estructuraGeologica;
+    public void setEstructuraPlanar(EstructuraPlanar estructuraPlanar) {
+        this.estructuraPlanar = estructuraPlanar;
     }
 
-    public Catalogacion getCatalogacion() {
-        return catalogacion;
+    public EstructuraLineal getEstructuraLineal() {
+        return estructuraLineal;
     }
 
-    public void setCatalogacion(Catalogacion catalogacion) {
-        this.catalogacion = catalogacion;
+    public void setEstructuraLineal(EstructuraLineal estructuraLineal) {
+        this.estructuraLineal = estructuraLineal;
+    }
+
+    public Pliegue getPliegue() {
+        return pliegue;
+    }
+
+    public void setPliegue(Pliegue pliegue) {
+        this.pliegue = pliegue;
+    }
+
+    public Muestra getMuestra() {
+        return muestra;
+    }
+
+    public void setMuestra(Muestra muestra) {
+        this.muestra = muestra;
+    }
+
+    public Afloramiento getAfloramiento() {
+        return afloramiento;
+    }
+
+    public void setAfloramiento(Afloramiento afloramiento) {
+        this.afloramiento = afloramiento;
+    }
+
+    public String getNomenclaturaUnidadGeologica() {
+        return nomenclaturaUnidadGeologica;
+    }
+
+    public void setNomenclaturaUnidadGeologica(String nomenclaturaUnidadGeologica) {
+        this.nomenclaturaUnidadGeologica = nomenclaturaUnidadGeologica;
+    }
+
+    public String getTipoContactoGeo() {
+        return tipoContactoGeo;
+    }
+
+    public void setTipoContactoGeo(String tipoContactoGeo) {
+        this.tipoContactoGeo = tipoContactoGeo;
+    }
+
+    public String getLimiteContactoGeo() {
+        return limiteContactoGeo;
+    }
+
+    public void setLimiteContactoGeo(String limiteContactoGeo) {
+        this.limiteContactoGeo = limiteContactoGeo;
+    }
+
+    public String getCertezaContactoGeo() {
+        return certezaContactoGeo;
+    }
+
+    public void setCertezaContactoGeo(String certezaContactoGeo) {
+        this.certezaContactoGeo = certezaContactoGeo;
+    }
+
+    public String getOrigenRoca() {
+        return origenRoca;
+    }
+
+    public void setOrigenRoca(String origenRoca) {
+        this.origenRoca = origenRoca;
+    }
+
+    public String getEstructuraRoca() {
+        return estructuraRoca;
+    }
+
+    public void setEstructuraRoca(String estructuraRoca) {
+        this.estructuraRoca = estructuraRoca;
     }
 }
