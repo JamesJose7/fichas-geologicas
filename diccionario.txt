@@ -1,0 +1,153 @@
+/*Ficha Campo*/
+
+// tipo contacto geo
+
+"f", "Fallado"
+"c", "Conforme"
+"d", "Discordancia angular"
+"e", "Discordancia erosiva o disconformidad"
+"i", "Inconformidad"
+"p", "Paraconformidad"
+"t", "Trancisional"
+"s", "Depósito superficial"
+"v", "Intrusivo"
+"u", "Cubierto"
+"y", "Desconocido"
+
+
+// limite contacto geo
+
+"fo", "Falla Observada"
+"fi", "Falla Inferida"
+"fc", "Falla Cubierta"
+"co", "Contacto Observado"
+"ci", "Contacto Inferido"
+"cf", "Contacto por fotografía"
+"cc", "Contacto por facies"
+
+// certeza
+
+"i", "Inferida"
+"o", "Observada"
+"c", "Contacto por fotografía"
+
+
+//Origen roca
+
+"mi", "Magmática o Ígnea"
+"mp", "Magmática Intrusiva o Plutónica"
+"mf", "Magmática Hipoabisal o Filoniana"
+"mv", "Magmática Efusiva o Volcánica"
+"mm", "Metamórfica"
+"sm", "Sedimentaria"
+"sc", "Sedimentaria Clástica o dentrítica"
+"sq", "Sedimentaria Química"
+"og", "Sedimentaria Organógenas o Bioquímica"
+"sp", "Sedimentaria Piroclástica"
+
+// estructura roca
+
+"b", "Bandeada"
+"c", "Cizallada"
+"o", "Columnar"
+"a", "En almohadilla"
+"e", "Estratificada"
+"f", "" Fluidal"
+"u", "Foliada"
+"m", "Masiva"
+
+/*muestra*/
+
+//consistencia_material
+"n", "No consolidado"
+"m", "Moderadamente consolidado"
+"f", "Fuertemente consolidado"
+
+//  tipo_analisis
+
+"g", "Geocronológico"
+"q", "Geoquímico"
+"m", "Micropaleontológico"
+"p", "Paleontológico"
+"r", "Petrográfico"
+"n", "Metalúrgico"
+// metodo  analisis
+
+"AAS", "Espectrofotometría Absorción Atómica"
+"COP", "Copelación"
+"ICP", "Plasma Inductivamente Acoplado"
+"XRF", "Espectrometía por Fluorescencia de rayos X"
+"FES", "Espectrometria por emisión de flama"
+"EPMA", "Microsonda electrónica de Barrido"
+"EIR", "Espectroscopía infraroja"
+"COL", "Colorimetría"
+"DTA", "Análisis Térmico Diferencial"
+"VH", "Vía húmeda"
+"DE", "Destilación"
+"TM", "Termometría"
+"SG", "Determinación de gravedad específica"
+"SEF", "Separación Mineral"
+"GRF", "Gravimetría"
+"GR", "Granulometria"
+"MLT", "Microscopía de luz transmitida"
+"MLR", "Microscopía de luz reflejada"
+"FM", "Fotomicrografía"
+"IF", "Inclusiones Fluidas"
+"FL", "Flotación por espuma"
+"HM", "Hidrometalurgia"
+"CN", "Cianuración"
+"SEM", "Separación Magnética"
+
+//Factores
+"t", "Temperatura",
+"cf", "Composición del Fluido",
+"pc", "Permeabilidad de la roca",
+"di", "Duracción de interacción agua/roca",
+"cr", "Composición de la roca",
+"p", "Presión",
+
+// Procesos
+
+"d", "Depositación directa"
+"r", "Reemplazo"
+"l", "Lixiviación"
+
+
+// Hidr_clases
+"sf" , "Silicificación"
+"st" , "Sericitización"
+"ag" , "Argilitización"
+"cl" , "Cloritización"
+"ep" , "Epidotización"
+"ac" , "Actinolización"
+"pl" , "Propilítica"
+"ai" , "Argílica Intermedia"
+"cs" , "Sericítica o cuarzo-sericítica"
+"aa" , "Argílica avanzada"
+"ps" , "Potásica"
+"sc" , "Sódico-cálcica"
+"sk" , "Skarn"
+"gs" , "Greissen"
+
+
+//densidad
+"e", "Excepcional"
+"m", "Mediana"
+"b", "Baja"
+
+// Unidad geologica
+"sf", "Silicificación",
+"st", "Sericitización",
+"ag", "Argilitización",
+"cl", "Cloritización",
+"ep", "Epidotización",
+"ac", "Actinolización",
+"pl", "Propilítica",
+"ai", "Argílica Intermedia",
+"cs", "Sericítica o cuarzo-sericítica",
+"aa", "Argílica avanzada",
+"ps", "Potásica",
+"sc", "Sódico-cálcica",
+"sk", "Skarn",
+"gs", "Greissen",
+
