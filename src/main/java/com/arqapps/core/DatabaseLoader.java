@@ -8,12 +8,15 @@ import com.arqapps.pliegue.Pliegue;
 import com.arqapps.ficha_campo.FichaCampo;
 import com.arqapps.ficha_campo.FichaCampoRepository;
 import com.arqapps.ubicacion.Ubicacion;
+import com.arqapps.user.User;
+import com.arqapps.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
@@ -22,16 +25,32 @@ import java.util.stream.IntStream;
 @Component
 public class DatabaseLoader implements ApplicationRunner {
     private final FichaCampoRepository fichas;
+    private final UserRepository users;
 
     @Autowired
-    public DatabaseLoader(FichaCampoRepository fichas) {
+    public DatabaseLoader(FichaCampoRepository fichas, UserRepository users) {
         this.fichas = fichas;
+        this.users = users;
     }
 
     @Override
     public void run(ApplicationArguments args) {
         // Delete previous data !!!
         fichas.deleteAll();
+        users.deleteAll();
+
+        // Generate test users
+        List<User> testUsers = Arrays.asList(
+                new User("raherrera", "andre", "herrera", "password", new String[] {"ROLE_USER"}),
+                new User("jeeguiguren", "jose", "eguiguren", "password", new String[] {"ROLE_USER"}),
+                new User("mjmora", "maria jose", "more", "password", new String[] {"ROLE_USER"})
+        );
+        users.save(testUsers);
+        // Admin
+        users.save(new User("admin", "super", "admin",
+                "admin", new String[] {"ROLE_ADMIN", "ROLE_ADMIN"}));
+
+
 
         // Generate test data
 
@@ -178,7 +197,7 @@ public class DatabaseLoader implements ApplicationRunner {
                             "datum " + randBetween(100, 1000),
                             "escala " + randBetween(100, 1000),
                             "proyecto " + randBetween(100, 1000),
-                            getLorem(randBetween(1, 5)),
+                            getLorem(randBetween(1, 2)),
                             "descritaPor " + randBetween(100, 1000),
                             clases[i % clases.length],
                             clases[i % clases.length],
@@ -193,42 +212,9 @@ public class DatabaseLoader implements ApplicationRunner {
                     fichaCampo.setEstructuraPlanar(estructuraPlanar);
                     fichaCampo.setEstructuraLineal(estructuraLineal);
                     fichaCampo.setPliegue(pliegue);
+                    fichaCampo.setUser(testUsers.get(i % testUsers.size()));
                     generatedFichas.add(fichaCampo);
                 });
-
-        // Create 25 Fichas with Diques and Alteracion Hidrotermal
-        /*IntStream.range(0, 25)
-                .forEach(i -> {
-                    //Ubicacion
-                    Ubicacion ranUbicacion = new Ubicacion(getRandomDate(),
-                            provincias[i % provincias.length],
-                            cantones[i % cantones.length],
-                            parroquias[i % parroquias.length],
-                            randBetween(1, 10) + "");
-                    // Diques - Estr Geologica
-                    EstructuraGeologica randDique = new Dique("estructura geologica",
-                            "dique",
-                            "descripcion" + randBetween(1, 50),
-                            "insitucion" + randBetween(1, 50),
-                            clases[i % clases.length],
-                            texturasRoca[i % texturasRoca.length]);
-                    // Alteracion Hidrotermal - Catalogacion
-                    Catalogacion ranAltHidro = new AlteracionHidrotermal("catalogacion",
-                            "alteracion hidrotermal",
-                            "descripcion" + randBetween(1, 50),
-                            "institucion" + randBetween(1, 50),
-                            factores[i % factores.length],
-                            procesos[i % procesos.length],
-                            clases[i % clases.length]);
-                    FichaCampo fichaCampo = new FichaCampo("muestra " + randBetween(100, 1000),
-                            "origen " + randBetween(100, 1000),
-                            "unidad geologica " + randBetween(100, 1000),
-                            "contacto " + randBetween(100, 1000));
-                    fichaCampo.setUbicacion(ranUbicacion);
-                    fichaCampo.setEstructuraGeologica(randDique);
-                    fichaCampo.setCatalogacion(ranAltHidro);
-                    generatedFichas.add(fichaCampo);
-                });*/
 
         fichas.save(generatedFichas);
 
@@ -244,12 +230,7 @@ public class DatabaseLoader implements ApplicationRunner {
     }
 
     private String getLorem(int repeats) {
-        return  "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n" +
-                "tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n" +
-                "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n" +
-                "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\n" +
-                "cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\n" +
-                "proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ";
+        return  "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod";
 //        return lorem.repeat(repeats);
     }
 }

@@ -7,10 +7,12 @@ import com.arqapps.estructura_geologica.EstructuraLineal;
 import com.arqapps.estructura_geologica.EstructuraPlanar;
 import com.arqapps.pliegue.Pliegue;
 import com.arqapps.ubicacion.Ubicacion;
+import com.arqapps.user.User;
 import org.springframework.data.rest.core.annotation.RestResource;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -50,6 +52,8 @@ public class FichaCampo extends BaseEntity {
     @RestResource(path = "afloramientoFicha", rel = "afloramiento")
     private Afloramiento afloramiento;
 
+    @ManyToOne
+    private User user;
 
     public FichaCampo() { super(); }
 
@@ -203,5 +207,13 @@ public class FichaCampo extends BaseEntity {
 
     public void setEstructuraRoca(String estructuraRoca) {
         this.estructuraRoca = estructuraRoca;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
