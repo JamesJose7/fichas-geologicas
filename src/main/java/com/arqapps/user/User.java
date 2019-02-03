@@ -16,13 +16,13 @@ public class User extends BaseEntity {
     @JsonIgnore
     private String password;
     @JsonIgnore
-    private String[] roles;
+    private String roles;
 
     protected User() {
         super();
     }
 
-    public User(String username, String firstName, String lastName , String password, String[] roles) {
+    public User(String username, String firstName, String lastName , String password, String roles) {
         this();
         this.firstName = firstName;
         this.lastName = lastName;
@@ -63,11 +63,11 @@ public class User extends BaseEntity {
         return password;
     }
 
-    public String[] getRoles() {
+    public String getRoles() {
         return roles;
     }
 
-    public void setRoles(String[] roles) {
+    public void setRoles(String roles) {
         this.roles = roles;
     }
 }

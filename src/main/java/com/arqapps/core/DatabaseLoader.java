@@ -41,14 +41,14 @@ public class DatabaseLoader implements ApplicationRunner {
 
         // Generate test users
         List<User> testUsers = Arrays.asList(
-                new User("raherrera", "andre", "herrera", "password", new String[] {"ROLE_USER"}),
-                new User("jeeguiguren", "jose", "eguiguren", "password", new String[] {"ROLE_USER"}),
-                new User("mjmora", "maria jose", "more", "password", new String[] {"ROLE_USER"})
+                new User("raherrera", "andre", "herrera", "password", "ROLE_USER"),
+                new User("jeeguiguren", "jose", "eguiguren", "password", "ROLE_USER"),
+                new User("mjmora", "maria jose", "more", "password", "ROLE_USER")
         );
         users.save(testUsers);
         // Admin
         users.save(new User("admin", "super", "admin",
-                "admin", new String[] {"ROLE_ADMIN", "ROLE_ADMIN"}));
+                "admin", "ROLE_ADMIN ROLE_ADMIN"));
 
 
 
