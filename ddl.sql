@@ -24,7 +24,20 @@ create table ficha_campo
   muestra_id                    int,
   contacto_geologico_id         int,
   afloramiento_id               int,
-  roca_id                       int
+  roca_id                       int,
+  # Users
+  user_id int
+);
+
+create table user
+(
+  id SERIAL
+    primary key,
+  first_name varchar(255),
+  last_name varchar(255),
+  username varchar(255),
+  password varchar(255),
+  roles varchar(255)
 );
 
 create table ubicacion
