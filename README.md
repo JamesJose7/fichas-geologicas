@@ -3,4 +3,7 @@ REST API para registro de fichas geologicas (Proyecto Bimestral de Arquitectura 
 
 ## Clients
 - Content manager - Web app (Django)
-[Repo - link](https://github.com/astandre/fichas-geologicas-cliente)
+[Repo link](https://github.com/astandre/fichas-geologicas-cliente)
+
+- Mobile client - Android app
+[Repo link](https://github.com/JamesJose7/fichas-campo-client)
