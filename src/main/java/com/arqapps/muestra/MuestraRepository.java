@@ -1,4 +1,4 @@
-package com.arqapps.catalogacion;
+package com.arqapps.muestra;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RestResource;

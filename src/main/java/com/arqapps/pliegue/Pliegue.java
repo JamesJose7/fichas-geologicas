@@ -1,4 +1,4 @@
-package com.arqapps.estructura_geologica;
+package com.arqapps.pliegue;
 
 import com.arqapps.core.BaseEntity;
 import com.arqapps.ficha_campo.FichaCampo;

@@ -1,11 +1,12 @@
 package com.arqapps.ficha_campo;
 
 import com.arqapps.catalogacion.Afloramiento;
-import com.arqapps.catalogacion.Muestra;
+import com.arqapps.muestra.Muestra;
 import com.arqapps.core.BaseEntity;
 import com.arqapps.estructura_geologica.EstructuraLineal;
 import com.arqapps.estructura_geologica.EstructuraPlanar;
-import com.arqapps.estructura_geologica.Pliegue;
+import com.arqapps.pliegue.Pliegue;
+import com.arqapps.ubicacion.Ubicacion;
 import org.springframework.data.rest.core.annotation.RestResource;
 
 import javax.persistence.CascadeType;

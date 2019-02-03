@@ -1,4 +1,4 @@
-package com.arqapps.catalogacion;
+package com.arqapps.muestra;
 
 import com.arqapps.core.BaseEntity;
 import com.arqapps.ficha_campo.FichaCampo;

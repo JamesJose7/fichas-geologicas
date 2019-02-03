@@ -1,4 +1,4 @@
-package com.arqapps.ficha_campo;
+package com.arqapps.ubicacion;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RestResource;

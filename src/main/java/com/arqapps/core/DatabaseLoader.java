@@ -1,13 +1,13 @@
 package com.arqapps.core;
 
 import com.arqapps.catalogacion.Afloramiento;
-import com.arqapps.catalogacion.Muestra;
+import com.arqapps.muestra.Muestra;
 import com.arqapps.estructura_geologica.EstructuraLineal;
 import com.arqapps.estructura_geologica.EstructuraPlanar;
-import com.arqapps.estructura_geologica.Pliegue;
+import com.arqapps.pliegue.Pliegue;
 import com.arqapps.ficha_campo.FichaCampo;
 import com.arqapps.ficha_campo.FichaCampoRepository;
-import com.arqapps.ficha_campo.Ubicacion;
+import com.arqapps.ubicacion.Ubicacion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;

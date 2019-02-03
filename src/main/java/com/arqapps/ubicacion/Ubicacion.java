@@ -1,6 +1,7 @@
-package com.arqapps.ficha_campo;
+package com.arqapps.ubicacion;
 
 import com.arqapps.core.BaseEntity;
+import com.arqapps.ficha_campo.FichaCampo;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
