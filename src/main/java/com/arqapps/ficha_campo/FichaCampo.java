@@ -53,7 +53,7 @@ public class FichaCampo extends BaseEntity {
     private Afloramiento afloramiento;
 
     @ManyToOne
-    private User user;
+    private User appUser;
 
     public FichaCampo() { super(); }
 
@@ -210,10 +210,10 @@ public class FichaCampo extends BaseEntity {
     }
 
     public User getUser() {
-        return user;
+        return appUser;
     }
 
     public void setUser(User user) {
-        this.user = user;
+        this.appUser = user;
     }
 }

@@ -7,7 +7,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.Entity;
 
-@Entity
+@Entity(name = "AppUser")
 public class User extends BaseEntity {
     public static final PasswordEncoder PASSWORD_ENCODER = new BCryptPasswordEncoder();
     private String firstName;
