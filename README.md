@@ -7,3 +7,9 @@ REST API para registro de fichas geologicas (Proyecto Bimestral de Arquitectura 
 
 - Mobile client - Android app
 [Repo link](https://github.com/JamesJose7/fichas-campo-client)
+
+## Usurios de Login
+
+* Usuario: admin
+* Contraseña: admin
+
